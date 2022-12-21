@@ -5,6 +5,8 @@ using namespace std;
 void primefactor(int n){
     if(n<=1){return;}
     for(int i=2 ; i*i<=n;i++){
+        // cout<<i<<"i    "<<n<<"n      ";
+     
         while(n%i==0){
             cout<<i<<" ";
             n=n/i; // removing the factor for which i has been printed //
@@ -13,7 +15,7 @@ void primefactor(int n){
         }
     }
     if(n>1){
-        cout<<n<<" "; // code for the edge casses //
+        cout<<n; // code for the edge casses //
     }
 // the starting prime 2 and 3 divides all the nos to the end 
     cout<<endl;
@@ -26,7 +28,9 @@ kinda opposite of the naive solution */
 
 int main(){
     
-    primefactor(96);
+    primefactor(12);
+
+
 // what i was again thinking was checking the prime then printing it but it was again the naive solution //
 
 

@@ -1,6 +1,7 @@
 
 #include <iostream>
 #include <vector>
+#include <algorithm>
 using namespace std;
 // naive solution //
 void divisors(int N){
@@ -20,35 +21,46 @@ void divisors(int N){
 
 // Efficient solution //
 void printdivo(int n){
+    vector<int> v2;
     for(int i=1; i*i<=n;i++){
         if(n%i==0){
-            cout<<i<<" ";
+            v2.push_back(i);
             if(i!=n/i){
-                cout<<n/i<<" ";
+                v2.push_back(n/i);
             }
         }
         
     }
+    sort(v2.begin(),v2.end());
+    cout<<"The sorted and efficient method is: ";
+    for(int i=0;i<v2.size();i++){
+         cout<<v2[i]<<" ";
+    }
     cout<<endl;
 }
 
-// more efficient //
+// more efficient(sorted) //
 
 void pindivo(int n){
-    int k;
-    for(k=1;k*k<=n;k++){
-        if(n%k==0){
-            cout<<k<<" ";
-        }
-    }
-    k=k-1;
-    for(;k>=1;k--){
-        if(n%k==0){
-            cout<<n/k<<" ";
-        }
-    }
+	int i = 1;
+	for(i=1; i*i <n; i++)
+	{
+        // cout<<"i:"<<i<<" ";
+		if(n % i == 0)
+		{
+			cout<<i<<" ";
+		}
+	}
+    
+	for(; i >= 1; i--)
+	{
+        // cout<<"ri:"<<i<<" ";
+		if(n % i == 0)
+		{
+			cout<<(n / i)<<" ";
+		}
+	}
     cout<<endl;
-
 }
 
 
@@ -57,7 +69,8 @@ int main(){
 
     divisors(20);
     printdivo(20);
-    pindivo(15);
+    pindivo(25);
+    pindivo(12);
 
 
     

@@ -1,30 +1,80 @@
 #include <iostream>
 using namespace std;
 
-int div(int N){
-    int c=0,d=0;
-    for(int i=1;i<=N;i++){
-        for(int j=1;j*j<=i;j++){
-            if(i%j==0){
-                c++;
+long long div(int n){
+    long long count=0;
+    for(int i=1;i<=n;i++){
+        int div=0;
+        for(int j=1; j*j<=i;j++){
+            if(n%j==0){
+                div=div+1;
+                if(i!=n/j){
+                    div=div+1;
+                }
             }
-        }
         
-        if(c==3){
-            d++;
         }
-        c=0;
+        if(div==3){
+            count+=1;
+        }
+    }
+
+    return count;
+    
+    
+}
+
+bool isPrime(int n){
+
+        for(int i=2;i*i<=n;i++){
+
+            if(n%i==0) return false;
+
+        }
+
+        return true;
 
     }
-    return d;
-}
+
+ 
+
+int exactly3Divisors(int N)
+
+    {
+
+        int cnt = 0;
+
+        for(int i=2;i*i<=N;i++){
+
+            if(isPrime(i)){
+
+                cnt++;
+
+            }
+
+        }
+
+        return cnt;
+
+    }
+
 
 
 int main(){
     
-    cout<<div(6);
+    cout<<div(13)<<endl;
+    cout<<exactly3Divisors(13);
 
 
     
     return 0;
 }
+
+
+
+
+
+
+
+
+

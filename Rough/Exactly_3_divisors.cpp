@@ -38,7 +38,7 @@ bool isPrime(int n){
 
  
 
-int exactly3Divisors(int N)
+void exactly3Divisors(int N)
 
     {
 
@@ -48,13 +48,13 @@ int exactly3Divisors(int N)
 
             if(isPrime(i)){
 
-                cnt++;
+                cout<<i*i<<" ";
 
             }
 
         }
 
-        return cnt;
+        // return cnt;
 
     }
 
@@ -63,7 +63,7 @@ int exactly3Divisors(int N)
 int main(){
     
     cout<<div(13)<<endl;
-    cout<<exactly3Divisors(13);
+    exactly3Divisors(64);
 
 
     

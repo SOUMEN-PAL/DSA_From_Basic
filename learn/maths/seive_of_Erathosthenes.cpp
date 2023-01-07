@@ -23,6 +23,7 @@ void effsteve(int a){
    vector<bool> vec(a+1,true);
    for(int i=2;i*i<=a;i++){
        if(vec[i]==true){
+            
            for(int j=i*i;j<=a; j=j+i){
                vec[j]=false;
            }
@@ -52,7 +53,7 @@ int main(){
     
     seive(10);
     effsteve(10);
-    mrstevee(10);
+    mrstevee(25);
     
     
     return 0;

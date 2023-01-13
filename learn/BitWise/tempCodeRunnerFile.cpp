@@ -1,0 +1,1 @@
+ cout<<bitset<8>(n1)<<endl;

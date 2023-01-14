@@ -28,12 +28,27 @@ int countSETbits(int n)
 }
 
 // efficient solution Lookup table //
+int table[256];
+void initialize(void){
+    for(int i = 1 ; i<256 ; i++){
+        table[i] = table[i&(i-1)]+1;
+    }
+}
+int CBIT(int n){
+    initialize();
+    
+    return table[n&255]+table[(n>>8)&255]+table[(n>>16)&255]+table[n>>24];
+
+
+}
 
 int main()
 {
-    int x = Countbit(32);
-    int y = countSETbits(32);
-    cout << x << " " << y << endl;
+
+    int x = Countbit(31);
+    int y = countSETbits(31);
+    int z = CBIT(31);
+    cout << x << " " << y << " " << z <<endl;
 
     return 0;
 }

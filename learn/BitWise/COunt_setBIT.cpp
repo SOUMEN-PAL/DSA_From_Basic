@@ -30,6 +30,7 @@ int countSETbits(int n)
 // efficient solution Lookup table //
 int table[256];
 void initialize(void){
+    table[0]=0;
     for(int i = 1 ; i<256 ; i++){
         table[i] = table[i&(i-1)]+1;
     }

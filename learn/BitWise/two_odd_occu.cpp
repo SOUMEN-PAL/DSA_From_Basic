@@ -27,10 +27,10 @@ void twoodd(int arr[] , int n){
     int One_Ans=0 , Second_Ans=0;
     for(int i = 0 ; i<n ; i++){
         if((arr[i]&k)!=0){
-            One_Ans=One_Ans ^ arr[i];
+            One_Ans=One_Ans ^ arr[i]; // differentiated the set bits //
         }
         else{
-            Second_Ans= Second_Ans ^ arr[i];
+            Second_Ans= Second_Ans ^ arr[i]; // differentiated the unset bits //
         }
 
     }

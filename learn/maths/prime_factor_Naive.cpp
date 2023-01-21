@@ -24,7 +24,7 @@ void primefactor(int n){
             int x=i;
             while(n%x==0){
                 cout<<i<<" ";
-                n=n/x;
+                x=x*i;
             }
         }
     }

@@ -13,6 +13,7 @@ int ropecut( int n , int a , int b , int c){
 
     if(res==-1){
         return -1; // edge case for the same value of a , b , c //
+                    // Test case for which its written its n=9 ,a=2 , b = 2 , c = 2 //
     }
     return res+1;
 

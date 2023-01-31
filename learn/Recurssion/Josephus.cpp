@@ -20,7 +20,7 @@ int main(){
     cin>>k;
 
     int res = jos(N , k);
-    cout<<"The person alive is: "<<res+1<<endl;
+    cout<<"The person alive is: "<<res<<endl;
 
 
     return 0;

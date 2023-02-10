@@ -34,12 +34,41 @@ int second_largest(int arr[] , int n){
 }
 
 
+// efficient solution //
+
+vector<int> ans; 
+void s_lar(int arr[] , int n){
+    int sec = -1 , large = 0;
+    for(int j = 1 ; j<n ; j++ ){
+        if(arr[j]>arr[large]){
+            sec = large;
+            large = j;
+        }
+        else if(arr[j] != arr[large]){
+            if(sec == -1 || arr[j]>arr[sec]){
+                sec = j;
+            }
+        }
+    }
+
+    ans.push_back(arr[large]);
+    ans.push_back(arr[sec]);
+
+
+}
+
+
 
 
 int main(){
-    int arr[] = {10,10,101};
+    int arr[] = {10,101,101};
     int n  = sizeof(arr)/sizeof(arr[0]);
-    cout<<second_largest(arr , n);
+    cout<<second_largest(arr , n)<<endl;;
+    s_lar(arr , n);
+    for(int i = 0 ; i<2 ; i++){
+        cout<<ans[i]<<" ";
+    }
+    cout<<endl;
       
 
 

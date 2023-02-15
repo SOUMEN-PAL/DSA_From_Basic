@@ -60,7 +60,7 @@ int repeat(int arr[] , int n){
 
 
 int main(){
-    int arr[] = {10 , 10 , 10,10};
+    int arr[] = {10 , 10 , 10,20};
     int n = sizeof(arr)/sizeof(arr[0]);
     int soz = repeat(arr , n);
     for(int i = 0 ; i<soz ; i++){

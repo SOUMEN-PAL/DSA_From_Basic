@@ -29,18 +29,19 @@ void lead(int arr[] , int n){
 
 // efficient solution //
 
-void leader(int arr[] , int n){
+vector<int> leader(int arr[] , int n){
+	vector<int> ans;
 	int curr_lead = arr[n-1];
 	// we know that the last element is always a leader //
-	cout<<curr_lead<<" ";
+	ans.push_back(curr_lead);
 	for(int i = n-2 ; i>=0 ; i--){
 		if(arr[i]>curr_lead){
 			curr_lead = arr[i]; // updating the value of current lead //
-			cout<<curr_lead<<" ";
+			ans.push_back(curr_lead);
 
 		}
 	}
-	cout<<endl;
+	return ans;
 // TC : O(n)
 // AS : O(1)
 }
@@ -53,7 +54,10 @@ int main(){
     int n = sizeof(arr)/sizeof(arr[0]);
 
     lead(arr, n);
-	leader(arr , n);
+	vector<int> sol = leader(arr , n);
+	for(int i  = 0 ; i<sol.size() ; i++){
+		cout<<sol[i]<<" ";
+	}
     
     return 0;
 }

@@ -87,7 +87,7 @@ void frequency(int arr[] , int n){
 
 
 int main(){
-    int arr[] = {1,1,2,2,2,3,3};
+    int arr[] = {1, 1, 1, 2, 3, 3, 5, 5, 8, 8, 8, 9, 9, 10};
     int n = sizeof(arr)/sizeof(arr[0]);
     cout<<"------For lopp Approach"<<endl;   
     fre(arr , n);

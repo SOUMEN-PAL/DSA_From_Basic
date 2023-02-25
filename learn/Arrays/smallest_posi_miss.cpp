@@ -10,27 +10,25 @@ int indexi(int arr [], int n){
         }
     }
 }
-int missingNumber(int arr[] , int n){
-    sort(arr,arr+n);
-    int ind = indexi(arr , n);
-    int i =1;
-    while(i<n){
-        if(arr[ind]!=i){
+
+int missing(int arr[] , int n){
+    sort(arr , arr+n);
+    int in = indexi(arr , n);
+    int i = 1;
+    while(in<=n){
+        if(arr[in]!=i){
             return i;
         }
-        
-        return i+1;
-        
         i++;
-        ind++;
+        in++;
     }
+
 }
 
 int main(){
     
-    int arr[] = {1 ,2 ,3 ,4 ,5};
+    int arr[] = {1,2,3,4,5,9};
     int n = sizeof(arr) / sizeof(arr[0]);
-    cout<<missingNumber(arr,n);
-
+    cout<<missing(arr , n);
     return 0;
 }

@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int incre(int arr[] , int n){
+int indexi(int arr [], int n){
     for(int i = 0 ; i<n ; i++){
         if(arr[i]>0){
             return i;
@@ -9,8 +9,11 @@ int incre(int arr[] , int n){
         }
     }
 }
-
-int missing(int arr[] , int n){
+    
+    //Function to find the smallest positive number missing from the array.
+int missingNumber(int arr[], int n) 
+{ 
+        // Your code here
     sort(arr , arr+n);
     int in = indexi(arr , n);
     int i = 1;
@@ -21,8 +24,7 @@ int missing(int arr[] , int n){
         i++;
         in++;
     }
-
-}
+} 
 
 int main(){
     

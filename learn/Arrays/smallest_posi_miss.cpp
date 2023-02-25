@@ -10,14 +10,25 @@ int incre(int arr[] , int n){
     }
 }
 
+int missing(int arr[] , int n){
+    sort(arr , arr+n);
+    int in = indexi(arr , n);
+    int i = 1;
+    while(in<=n){
+        if(arr[in]!=i){
+            return i;
+        }
+        i++;
+        in++;
+    }
 
-
+}
 
 int main(){
     
-    int arr[] = {0,1 ,2 ,3 ,4 ,5};
+    int arr[] = {1 ,2 ,3 ,4 ,5};
     int n = sizeof(arr) / sizeof(arr[0]);
-    cout<<incre(arr , n);
+    cout<<missingNumber(arr,n);
 
     return 0;
 }

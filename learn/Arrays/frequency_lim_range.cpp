@@ -48,14 +48,42 @@ times the elements are and modify the array
 //     cout<<endl;
 // }
 
+// efficient solution //
+void fre(int arr[] , int n){
+    map<int , int> ans;
+    for(int i = 1 ; i<=n ; i++){
+        ans[i] = 0;
+    }
+    map<int,int> :: iterator it ;
+    
+    int i = 0;
+    for(int i = 0 ; i<n ; i++){
+        ans[arr[i]]++;
+    }
+    for(it= ans.begin() ; it!=ans.end() ; it++){
+        cout<<it->first<<" "<<it->second<<endl;
+    }
 
+    for(int i = 0  ; i<n ; i++){
+        arr[i] = ans[i+1];
+    }
+
+    cout<<"Value of arrays"<<endl;
+    for(int i = 0 ; i<n ; i++){
+        cout<<arr[i]<<" ";
+    }
+    cout<<endl;
+    
+
+
+}
 
 
 int main(){
     int arr[] = {2,3,2,7,3,5};
     int n = sizeof(arr)/sizeof(arr[0]);
 
-
+    fre(arr , n);
 
 
 

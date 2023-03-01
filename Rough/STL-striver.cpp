@@ -7,10 +7,10 @@ struct node{
     double doub;
     char x;
 
-    node(str_, num_, doub_ , x_){
-        str = str_;
-        num = num_;
-        doub = doub_;
+    node(string s_, int n_ , double d_ , char x_){ // you have to specify the data type you are going to give so you have to declare it 
+        str = s_;
+        num = n_;
+        doub = d_;
         x = x_;
     }
 

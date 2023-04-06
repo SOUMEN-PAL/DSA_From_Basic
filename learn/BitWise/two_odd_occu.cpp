@@ -23,7 +23,7 @@ void twoodd(int arr[] , int n){
     for(int i=1 ; i<n ; i++){
         x=x^arr[i];
     }
-    int k = (x & (~(x-1)));
+    int k = (x & (~(x-1))); // or use 1<<floor(log2(x));//
     int One_Ans=0 , Second_Ans=0;
     for(int i = 0 ; i<n ; i++){
         if((arr[i]&k)!=0){

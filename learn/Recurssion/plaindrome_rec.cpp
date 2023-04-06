@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool palindrome(string a , int start , int end){
+bool palindrome(string &a , int start , int end){
 
     if(start>=end){
         return true;

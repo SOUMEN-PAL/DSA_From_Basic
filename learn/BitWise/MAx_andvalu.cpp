@@ -27,7 +27,7 @@ int max_andvalue(int arr[] , int n){
 
 int main(){
 
-    int arr[] = {4,8,116,12};
+    int arr[] = {4,8,16,12};
     int n = sizeof(arr) / sizeof(arr[0]);
     cout<<max_andvalue(arr , n)<<endl;
 

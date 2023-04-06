@@ -28,8 +28,8 @@ long long toh(int N, int from, int to, int aux) {
 
 
 int main(){
-    cout<<ToH(3 , 'A' , 'B' , 'C')<<endl;
-    cout<<toh(3 , 1 , 3 , 2)<<endl;
+    cout<<ToH(4 , 'A' , 'B' , 'C')<<endl;
+    // cout<<toh(3 , 1 , 3 , 2)<<endl;
 
     return 0;
 }

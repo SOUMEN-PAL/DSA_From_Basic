@@ -48,7 +48,7 @@ int t_rain(int arr[] , int n){
 
 int main(){
     
-    int arr[] = {5 , 0 , 0 , 5};
+    int arr[] = {1,8,6,2,5,4,8,3,7};
     int n = sizeof(arr) / sizeof(arr[0]);
 
     cout<<trap_rain(arr , n)<<"    "<<t_rain(arr , n);

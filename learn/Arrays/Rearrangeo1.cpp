@@ -5,7 +5,7 @@ void arra(int arr[] , int n){
     for(int i = 0 ; i<n ; i++){
         int x = arr[i]; // storing the current element at the index //
         int y = arr[x]; // the value thath hase to be there but in the combined way to extract the has to be value which is stored as indexing value //
-
+        cout<<x<<" "<<y<<endl;
         arr[i] = x + (y%n)*n;
     }
 

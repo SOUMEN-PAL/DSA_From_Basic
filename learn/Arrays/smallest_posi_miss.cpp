@@ -53,6 +53,28 @@ int missing(int arr[] , int n){
     return n+1;
 }
 
+/*
+wrong answer comming
+
+int mis(int arr[] , int n){
+    sort(arr,arr+ n);
+
+    int x = 1;
+    for(int i = 0  ; i<n ; i++){
+        if(arr[i]<0){
+            continue;
+        }
+        else{
+            if(arr[i]>0){
+                if(arr[i]==x){
+                    x++;
+                }
+            }
+        }
+    }
+    return x;
+}
+*/
 
 
 
@@ -61,6 +83,7 @@ int main(){
     int arr[] = {1 ,2 ,3 ,4 ,5};
     int n = sizeof(arr) / sizeof(arr[0]);
     cout<<missing(arr , n)<<endl;
+
 
 
 

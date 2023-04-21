@@ -15,13 +15,13 @@ void insertt(int arr[] , int n , int x , int cap , int pos){
 }
 
 int main(){
-    int arr[4] = {1,34,21,5};
+    int arr[5] = {1,34,21,5};
     int size = 4;
     int value = 24;
     int pos = 2;
-    int capacity = 4;
+    int capacity = 5;
     insertt(arr , size , value , capacity , pos);
-    for(int i  = 0  ; i<4 ; i++){
+    for(int i  = 0  ; i<5 ; i++){
         cout<<arr[i]<<" ";
     }
     

@@ -6,7 +6,7 @@ using namespace std;
 
 
 int max_sum(int arr[] , int n){
-    int res = arr[0];
+    int res = arr[0]; // muje yaha pata ha array ka subarray start hamesa 0 th element se hi hoga //
 
     for(int i = 0 ; i<n ; i++){
         int curr = 0;

@@ -1,6 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+
+// naive solution //
 int sliding_window(int arr[] , int n , int k){
     int res = INT_MIN;
     for(int i = 0 ; i+k-1<n ; i++){
@@ -16,8 +18,27 @@ int sliding_window(int arr[] , int n , int k){
 
     return res;
 
+}
+// efficient solution //
+
+int sld_wind(int arr[] , int n , int k){
+
+    int windo = 0;
+    int res = INT_MIN;
+    for(int i = 0 ; i<k ; i++){
+        windo = windo+arr[i];
+    }
+
+    for(int j = k ; j<n ; j++){
+        windo = (windo + arr[j])-arr[j-k];
+        res = max(res , windo);
+    }
+
+    return res;
 
 }
+
+ 
 
 
 
@@ -28,6 +49,7 @@ int main(){
     int k =3;
 
     cout<<sliding_window(arr , n , k)<<endl;
+    cout<<sld_wind(arr , n , k)<<endl;
 
 
     return 0;

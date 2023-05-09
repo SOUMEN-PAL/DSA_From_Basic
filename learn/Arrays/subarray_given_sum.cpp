@@ -17,7 +17,21 @@ bool subarray_with_given_sum(int arr[] , int n  , int sum){
 
 
 // Efficiet solution //
+bool sub_arr_given_sum(int arr[] , int n , int sum){
+    int s = 0 , curr = 0;
+    for(int i = 0 ; i<n ; i++){
+        curr+=arr[i];
+        while(curr>sum){
+            curr-=arr[s];
+            s++;
+        }
+        if(curr==sum){
+            return true;
+        }
+    }
+    return false;
 
+}
 
 
 int main(){
@@ -25,7 +39,7 @@ int main(){
     int n = sizeof(arr)/sizeof(arr[0]);
     int sum = 33;
 
-    bool ans = subarray_with_given_sum(arr , n , sum);
+    bool ans = sub_arr_given_sum(arr , n , sum);
     if(ans){
         cout<<"Yes"<<endl;
     }

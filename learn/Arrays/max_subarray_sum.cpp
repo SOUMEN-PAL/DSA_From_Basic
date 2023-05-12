@@ -20,6 +20,7 @@ int max_sum(int arr[] , int n){
 }
 
 // efficient solution //
+// kadane algo //
  int mSum(int arr[] , int n){
     int res = arr[0];
     int maxend = 0;

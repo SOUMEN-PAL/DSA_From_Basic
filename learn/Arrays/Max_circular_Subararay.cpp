@@ -55,7 +55,7 @@ int max_circular_sub(int arr[] , int n){
 
 
 int main(){
-    int arr[] = {5,-2,3,4};
+    int arr[] = {5 , 10 , -2 , 59 , -10 , };
     int n = sizeof(arr)/ sizeof(arr[0]);
 
     cout<<max_sub(arr , n)<<endl;

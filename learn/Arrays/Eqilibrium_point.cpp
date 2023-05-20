@@ -35,7 +35,17 @@ bool Equi_point(int arr[] , int n){
         sum2 +=arr[i];
         rs[i] = sum2;
     }
+    cout<<"Prefix sum: ";
+    for(int i = 0 ; i< n  ; i++){
+        cout<<ls[i]<<" ";
+    }
+    cout<<endl;
 
+    cout<<"Suffix sum: ";
+    for(int i = 0 ; i< n  ; i++){
+        cout<<rs[i]<<" ";
+    }
+    cout<<endl;
 
     if(ls[n-2]==0 || rs[1]==0){
         return true;
@@ -48,13 +58,15 @@ bool Equi_point(int arr[] , int n){
     }
     return false;
 
+
+
 }
 
 
 
 int main(){
 
-    int arr[] = {4,-2,2};
+    int arr[] = {9,2,3,4,6};
     int n = sizeof(arr)/sizeof(arr[0]);
     if(equi_point(arr , n)){
         cout<<"YES"<<endl;

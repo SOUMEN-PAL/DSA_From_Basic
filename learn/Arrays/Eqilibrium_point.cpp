@@ -62,6 +62,25 @@ bool Equi_point(int arr[] , int n){
 
 }
 
+// Efficient Solution //
+
+bool Equii_point(int arr[] , int n){
+    int rs = 0 ; 
+    for(int i = 0 ; i<n ; i++){
+        rs+=arr[i];
+    }
+    int ls = 0;
+    for(int i = 0 ; i<n ; i++){
+        rs = rs = arr[i];
+        if(ls==rs){
+            return true;
+        }
+        ls = ls+arr[i];
+    }
+
+    return false;
+}
+
 
 
 int main(){
@@ -80,7 +99,12 @@ int main(){
     else{
         cout<<"NO"<<endl;
     }
-
+    if(Equii_point(arr , n)){
+        cout<<"YES"<<endl;
+    }
+    else{
+        cout<<"NO"<<endl;
+    }
 
 
 

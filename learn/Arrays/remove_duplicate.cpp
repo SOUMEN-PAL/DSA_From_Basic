@@ -37,7 +37,7 @@ int repeat(int arr[] , int n){
 
     for(int i = 1 ; i<n ; i++){
 
-        if(arr[i]!=arr[i-1]){
+        if(arr[i]!=arr[res-1]){
             arr[res] = arr[i];
             res++;
         }
@@ -60,7 +60,7 @@ int repeat(int arr[] , int n){
 
 
 int main(){
-    int arr[] = {10 , 10 , 10,20};
+    int arr[] = {16 , 10 , 10,25 , 25 , 20 , 20};
     int n = sizeof(arr)/sizeof(arr[0]);
     int soz = repeat(arr , n);
     for(int i = 0 ; i<soz ; i++){

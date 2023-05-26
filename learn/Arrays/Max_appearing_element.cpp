@@ -1,8 +1,9 @@
 #include<bits/stdc++.h>
+#define maxx 100
 using namespace std;
 // maximum most appearing element //
 int max_in_rnage(int l[] , int r[] , int n){
-    int maxx = 100;
+
     vector <int> fre(maxx , 0);
     for(int i = 0 ; i<n  ;i++){
         fre[l[i]]+=1;
@@ -18,6 +19,12 @@ int max_in_rnage(int l[] , int r[] , int n){
             res = i;
         }
     }
+    cout<<"The maximum appearing elements are: ";
+    for(int i = 0 ; i<maxx ; i++){
+        if(i!=res && fre[i]==fre[res]){
+            cout<<i<<" ";
+        }
+    }
 
     return res;
 
@@ -27,8 +34,8 @@ int max_in_rnage(int l[] , int r[] , int n){
 
 int main(){
 
-    int l[] = {1,2,3};
-    int r[] = {4,5,6};
+    int l[] = {1,2,1,1};
+    int r[] = {4,5,6,7};
     int n = sizeof(l)/sizeof(l[0]);
 
     cout<<max_in_rnage(l , r , n)<<endl;

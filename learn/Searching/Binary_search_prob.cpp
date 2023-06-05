@@ -4,7 +4,7 @@ using namespace std;
 int fisrt_occurence(int arr[] , int low , int high , int x , int n){
     if(high>=low){
         int mid = (low+high)/2;
-        if(mid==0 || x>arr[mid-1] && arr[mid]==x){
+        if( x>arr[mid-1] && arr[mid]==x || mid==0){
             return mid;
         }
         else if(x>arr[mid]){
@@ -19,7 +19,7 @@ int fisrt_occurence(int arr[] , int low , int high , int x , int n){
 int lasr_occurence(int arr[] , int low , int high , int x , int n){
     if(high>=low){
         int mid = (low+high)/2;
-        if(mid == 0 || x<arr[mid+1] && arr[mid] == x){
+        if(x<arr[mid+1] && arr[mid] == x || mid == n-1){
             return mid;
         }
         else if(x<arr[mid]){

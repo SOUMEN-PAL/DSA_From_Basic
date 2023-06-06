@@ -39,7 +39,7 @@ int first_occurence(int arr[] , int low , int high , int x , int n){
 
 
 int main(){
-    int arr[] = {1,1,1,2,2,2,2,3,4};
+    int arr[] = {1,1,2,2,2,2,2,3,4};
     int n = sizeof(arr)/sizeof(arr[0]);
     int x;
     cout<<"Enter the key: ";

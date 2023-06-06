@@ -18,7 +18,7 @@ int last_occurence(int arr[] , int n , int x)
 
 
 
-// efficient solution //
+//_________________efficient solution____________________//
 int lasr_occurence(int arr[] , int low , int high , int x , int n){
     while(high>=low){
         int mid = (low+high)/2;

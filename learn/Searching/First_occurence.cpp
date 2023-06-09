@@ -18,11 +18,12 @@ int first_occ(int arr[] , int n , int x){
 
 
 
-// ________________efficient solution____________________ //
+// ________________efficient solution____________________  Unknown approach//
+
 int first_occurence(int arr[] , int low , int high , int x , int n){
     if(high>=low){
         int mid = low+(high-low)/2;
-        if(mid==0 || arr[mid-1]<x && arr[mid]==x){
+        if((mid==0 || arr[mid-1]<x) && arr[mid]==x){
             return mid;
         }
         else if(x>arr[mid]){
@@ -37,6 +38,30 @@ int first_occurence(int arr[] , int low , int high , int x , int n){
     }
 }
 
+// GFG approach //
+int firstOccurence(int arr[] , int n , int x){
+    int high = n-1 , low = 0;
+    
+    while(high>=low){
+        int mid = (low+high)/2;    
+        if(x>arr[mid]){
+            low = mid+1;
+        }
+        else if(x<arr[mid]){
+            high = mid-1;
+        }
+        else{// only left is arr[mid]==x //
+            if(mid == 0 || arr[mid-1] != arr[mid]){
+                return mid;
+            }
+            else{
+                high = mid-1;
+            }
+        }
+    }
+    return -1;
+}
+
 
 int main(){
     int arr[] = {1,1,2,2,2,2,2,3,4};
@@ -47,6 +72,6 @@ int main(){
 
     cout<<"The starting index is: "<<first_occurence(arr , 0 , n-1 , x , n)<<endl;
     cout<<"The starting index is: "<<first_occ(arr , n , x)<<endl;
-    
+    cout<<"The starting index is: "<<firstOccurence(arr , n , x)<<endl;
     return 0;
 }

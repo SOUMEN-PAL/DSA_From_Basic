@@ -7,6 +7,18 @@ using namespace std;
 int firstOccurenceOfOne(int arr[] , int low , int high){
     while(low <= high){
         int mid = (low + high)/2;
+        if(arr[mid] == 0){
+            low = mid + 1;
+        }
+        else{
+            if(mid == 0 || arr[mid - 1] != arr[mid]){
+                return mid;
+            }
+            else{
+                high = mid - 1;
+            }
+
+        }
         
     }
 }
@@ -22,6 +34,8 @@ int First_one(int arr[]){
     }
     if(arr[h-1]==0){return h;}
 
+    return firstOccurenceOfOne(arr , l , h);
+
     
 }
 
@@ -30,6 +44,9 @@ int First_one(int arr[]){
 
 
 int main(){
+
+    int arr[] = {0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1};
+    cout<<First_one(arr)<<endl;
     
     return 0;
 }

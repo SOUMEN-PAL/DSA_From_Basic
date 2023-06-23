@@ -71,7 +71,7 @@ bool Equii_point(int arr[] , int n){
     }
     int ls = 0;
     for(int i = 0 ; i<n ; i++){
-        rs = rs = arr[i];
+        rs = rs - arr[i];
         if(ls==rs){
             return true;
         }
@@ -83,9 +83,10 @@ bool Equii_point(int arr[] , int n){
 
 
 
+
 int main(){
 
-    int arr[] = {9,2,3,4,6};
+    int arr[] = {1,7,3,6,5,6};
     int n = sizeof(arr)/sizeof(arr[0]);
     if(equi_point(arr , n)){
         cout<<"YES"<<endl;

@@ -38,7 +38,7 @@ bool sub_arr_given_sum(int arr[] , int n , int sum){
 int main(){
     int arr[] = {1,4,20,3,10,5};
     int n = sizeof(arr)/sizeof(arr[0]);
-    int sum = 0;
+    int sum = 1;
 
     bool ans = sub_arr_given_sum(arr , n , sum);
     if(ans){

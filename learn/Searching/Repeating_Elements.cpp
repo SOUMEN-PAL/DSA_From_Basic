@@ -41,13 +41,35 @@ int Repeated_ELement(vector<int> arr){
 
     return -1;
 }
+// most Efficient Solution//
+
+int Repeated_element(int arr[] , int n){
+    int slow = arr[0]+1 , fast = arr[0]+1;
+    do{
+        slow = arr[slow]+1;
+        fast = arr[arr[fast]+1]+1;
+    }while(slow != fast);
+
+    slow = arr[0]+1;
+    while(slow != fast){
+        slow = arr[slow]+1;
+        fast = arr[fast]+1;
+    }
+
+    return slow-1;
+}
+
+
 
 
 
 
 
 int main(){
-    vector<int> arr = {1,2,4,5,6,6,7,8};
-    cout<<Repeat_solution(arr)<<" "<<Repeat_ele(arr)<<" "<<Repeated_ELement(arr);
+    vector<int> arr = {0,1,2,3,4,5,6,7,7};
+    cout<<Repeat_solution(arr)<<" "<<Repeat_ele(arr)<<" "<<Repeated_ELement(arr)<<endl;
+    int arr1[] = {0,1,2,3,4,5,6,7,7};
+    int n = sizeof(arr1)/sizeof(arr1[0]);
+    cout<<Repeated_element(arr1 , n)<<endl;
     return 0;
 }

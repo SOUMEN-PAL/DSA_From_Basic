@@ -32,11 +32,19 @@ int t_rain(int arr[] , int n){
     for(int i = 1 ; i<n ; i++){
         lmax[i] = max(arr[i] , lmax[i-1]);
     }
+    for(int i = 0 ; i<n ; i++){
+        cout<<lmax[i]<<" ";
+    }
+    cout<<endl;
 
     rmax[n-1] = arr[n-1];
     for(int i = n-2 ; i>=0 ; i--){
         rmax[i] = max(arr[i] , rmax[i+1]);
     }
+    for(int i = 0 ; i<n ; i++){
+        cout<<rmax[i]<<" ";
+    }
+    cout<<endl;
 
     for(int i = 1 ; i <n-1 ; i++ ){
         res = res + (min(lmax[i] , rmax[i]) - arr[i]); // ass all the values are precompute it is jst computing the amount of water that can be trap //
@@ -51,7 +59,7 @@ int main(){
     int arr[] = {1,8,6,2,5,4,8,3,7};
     int n = sizeof(arr) / sizeof(arr[0]);
 
-    cout<<trap_rain(arr , n)<<"    "<<t_rain(arr , n);
+    cout<<trap_rain(arr , n)<<endl<<t_rain(arr , n);
 
 
 

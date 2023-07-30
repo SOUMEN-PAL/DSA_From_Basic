@@ -17,24 +17,24 @@ void insertion_Sort(int arr[] , int n){
 
 // naive Solution //
 
-// int * mergeTwoSorted(int A[] , int n , int B[] , int m){
-//     int res[m+n];
-//     for(int i = 0 ; i<n ; i++){
-//         res[i] = A[i];
-//     }
-//     for(int i = 0 ; i<m ; i++){
-//         res[i+n] = B[i];
-//     }
+int * mergeTwoSorted(int A[] , int n , int B[] , int m){
+    int res[m+n];
+    for(int i = 0 ; i<n ; i++){
+        res[i] = A[i];
+    }
+    for(int i = 0 ; i<m ; i++){
+        res[i+n] = B[i];
+    }
 
-//     insertion_Sort(res , m+n);
+    insertion_Sort(res , m+n);
 
-//     for(int i = 0 ; i<m+n ; i++){
-//         cout<<res[i]<<" ";
-//     }
+    for(int i = 0 ; i<m+n ; i++){
+        cout<<res[i]<<" ";
+    }
 
-//     return res;
+    return res;
 
-// }
+}
 
 
 vector<int> Merge_Two_sorted(int arr[] , int n , int brr[] , int m){

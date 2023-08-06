@@ -5,7 +5,7 @@ using namespace std;
 void merge(int arr[], int l, int m, int h){
     
     int n1=m-l+1, n2=h-m;
-    int left[n1],right[n2];
+    int *left = new int[n1], *right = new int[n2];
     for(int i=0;i<n1;i++)
         left[i]=arr[i+l];
     for(int j=0;j<n2;j++)

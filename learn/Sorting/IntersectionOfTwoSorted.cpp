@@ -46,7 +46,7 @@ void Intersection_sorted(int arr[] , int brr[] , int n , int m){
 
 int main(){
     int arr[] = {1,2,2,2,3,4,5,5,6,7,8,9};
-    int brr[] = {1,1,1,2,2,2,2,3,3,3,3,3,4,4,4,4,5,6,7};
+    int brr[] = {1,1,1,2,2,2,2,3,3,3,3,3,4,4,4,4,5,6,7 , 9};
     int n = sizeof(arr)/sizeof(arr[0]) , m = sizeof(brr)/sizeof(brr[0]);
     vector<int> ans = intersectionOfTwoSortedArray(arr , brr , n , m);
     for(int i : ans){

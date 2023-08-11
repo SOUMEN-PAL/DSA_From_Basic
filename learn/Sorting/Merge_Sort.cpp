@@ -34,10 +34,10 @@ void mergeSort(int arr[],int l,int r){
 
 int main() {
 	
-    int a[]={10,5,30,15,76,41,16,4,1,64,6,46,42,6,46,6,6,6,6,11,5,1,5,11,1,5,15,1,51,5,2,121,54,51,2,16,43,6,4,3,1};
+    int a[]={2,4,1,3,5};
 	int l=0,r=sizeof(a)/sizeof(a[0]);
 	
-	mergeSort(a,l,r);
+	mergeSort(a,l,r-1);
 	for(int x: a)
 	    cout<<x<<" ";
 }

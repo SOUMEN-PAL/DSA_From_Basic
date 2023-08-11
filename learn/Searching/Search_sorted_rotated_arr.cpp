@@ -36,9 +36,9 @@ int Search_Rotated(int arr[] , int n , int x){
 
 int main(){
 
-    int arr[] = {100,200,300,1,2,3,4,5,6,7,8};
+    int arr[] = {1,0,1,1,1};
     int n = sizeof(arr)/sizeof(arr[0]);
-    int x = 2;
+    int x = 0;
     cout<<Search_Rotated(arr , n , x)<<endl;
 
     return 0;

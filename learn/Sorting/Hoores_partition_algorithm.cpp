@@ -3,7 +3,7 @@ using namespace std;
 
 
 int Hoores_partition(int arr[] , int l , int h){
-    int pivot = arr[l];
+    int pivot = arr[h];
     int i = l-1 , j = h+1;
     while(true){
         do{
@@ -17,7 +17,7 @@ int Hoores_partition(int arr[] , int l , int h){
         
         if(i>=j)
         {
-            return j;
+            return i;
         }
         swap(arr[i] , arr[j]);
     }
@@ -27,7 +27,7 @@ int Hoores_partition(int arr[] , int l , int h){
 
 int main(){
 
-    int arr[] = {5,3,8,4,2,7,1,10};
+    int arr[] = {5,3,1,2,4};
     int n = sizeof(arr)/sizeof(arr[0]);
     int x = Hoores_partition(arr , 0 , n-1);
     for(int i = 0 ; i<n ; i++){

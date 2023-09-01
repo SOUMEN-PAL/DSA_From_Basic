@@ -29,6 +29,7 @@ void ThreeWayPartition(int arr[] , int n){
 }
 
 // Efficient solution //
+//_________________________Dutch National Flag Algorithm_____________________//
 void Three_Sort(int arr[] , int n){
     int lo = 0 , hi = n-1 , mid = 0;
     while(mid<=hi){

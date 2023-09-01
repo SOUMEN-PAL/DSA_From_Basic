@@ -12,7 +12,7 @@ int lomuto_partition(int arr[] , int l , int h , int p){
             swap(arr[i] , arr[j]);
         }
     }
-    swap(arr[i+1] , arr[h]);// faltu ke kuch swaps jinki jarurat nahi ha//
+    swap(arr[i+1] , arr[h]);
     return i+1;
 }
 

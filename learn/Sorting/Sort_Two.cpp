@@ -1,69 +1,46 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-// seperate positive and negative element //
 
-void seg_array(int arr[] , int n){
-    int low = -1 , high = n;
-    while(true){
-        do{
-            low++;
-        }while(arr[low]<0);
-
-        do{
-            high--;
-        }while(arr[high]>=0);
-        if(low>=high){
-            return; // to break the loop //
-        }
-        swap(arr[low] , arr[high]);
-    }
-}
-
-// seperate odd and even elements //
-
-void Seperate_Odd_and_Even(int arr[] , int n){
-    int i = -1 , j = n;
+void CommonPartition(int arr[] , int n , bool (*Func)(int)){
+    int i = -1  , j = n;
     while(true){
         do{
             i++;
-        }while(arr[i]%2 != 0);
+        }while(Func(arr[i]));
 
         do{
             j--;
-        }while(arr[j] % 2 == 0);
-
+        }while(!Func(arr[j]));
         if(i>=j){
             return;
         }
-
         swap(arr[i] ,arr[j]);
     }
 }
 
-
-// seperate 0s and 1s in the array //
-
-void Seperate_ones_and_Zeroes(int arr[] , int n){
-    int i = -1 , j = n;
-    while(true){
-        do{
-            i++;
-        }while(arr[i] == 0);
-
-        do{
-            j--;
-        }while(arr[j] == 1);
-
-        if(i>=j){
-            return;
-        }
-        swap(arr[i] , arr[j]);
+bool fun1(int n)
+{
+    if(n<0){
+        return true;
     }
+    return false;
 }
 
-// or could have used a variation of move 0 to end //
+bool fun2(int n){
+    if(n%2!=0){
+        return true;
+    }
+    return false;
 
+}
+
+bool fun3(int n){
+    if(n==0){
+        return true;
+    }
+    return false;
+}
 
 int main(){
     int Array1[] = {-2,4,-67,4,-8,4,6,7,8};
@@ -72,9 +49,10 @@ int main(){
     int n1 = sizeof(Array1)/sizeof(Array1[0]);
     int n2 = sizeof(Array2)/sizeof(Array2[0]);
     int n3 = sizeof(Array3)/sizeof(Array3[0]);
-    seg_array(Array1 , n1);
-    Seperate_Odd_and_Even(Array2 , n2);
-    Seperate_ones_and_Zeroes(Array3 , n3);
+
+    CommonPartition(Array1, n1 , fun1);
+    CommonPartition(Array2 , n2 , fun2);
+    CommonPartition(Array3 , n3 , fun3);
 
     for(int i = 0 ; i<n1 ; i++){
         cout<<Array1[i]<<" ";

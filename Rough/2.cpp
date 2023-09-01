@@ -4,37 +4,24 @@ using namespace std;
 
 
 void threeWayPartition(vector<int>& array,int a, int b)
-{
-    int l = -1 , r = array.size();
-    while(true){
-        do{
-            l++;
-        }while(array[l]<a);
-        
-        do{
-            r--;
-        }while(array[r]>b);
-        if(l>=r){
-            break;
+    {
+        int l = 0, r = array.size() - 1;
+        for (int i = 0; i <= r; ) {
+            if (array[i] < a) {
+                swap(array[i], array[l]);
+                l++;
+                i++;
+            }
+            else if (array[i] > b) {
+                swap(array[i], array[r]);
+                r--;
+            }
+            else {
+                i++;
+            }
         }
-        swap(array[l] , array[r]);
-    }
-    l = -1;
-    r = array.size();
-    while(true){
-        do{
-            l++;
-        }while(array[l]<b);
         
-        do{
-            r--;
-        }while(array[r]>b);
-        if(l>=r){
-            break;
-        }
-        swap(array[l] , array[r]);
     }
-}
         
 
 int main(){

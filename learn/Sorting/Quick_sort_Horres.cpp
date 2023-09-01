@@ -32,6 +32,20 @@ void Q_sort(int arr[], int low, int high) {
     }
 }
 
+/*
+tail recurssive quick sort
+void Q_sort(int arr[], int low, int high) {
+    begin:
+    if (low < high)
+    {
+        int p = partition(arr, low, high);
+        
+        Q_sort(arr, low, p);
+        low = p+1;
+        goto begin;
+    }
+}
+*/
 
 
 int main() {

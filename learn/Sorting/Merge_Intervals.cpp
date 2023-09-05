@@ -43,9 +43,11 @@ void mergeIntervals(vector<vector<int>> &arr){
             arr[res] = arr[i];
         }
     }
-    for(int i = 0 ; i <= res ; i++){
+    arr.erase(arr.begin()+res+1 , arr.end());
+    for(int i = 0 ; i < arr.size() ; i++){
         cout<<"["<<arr[i][0]<<" "<<arr[i][1]<<"] ";
     }
+    
 }
 
 

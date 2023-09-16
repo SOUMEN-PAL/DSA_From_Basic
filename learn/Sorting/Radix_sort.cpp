@@ -20,6 +20,7 @@ void countin_sort(int arr[] , int n , int k){
 
 // radix sort //
 // subnet of of counting sort //
+// TC = O(N) linear //
 void radix_sort(int arr[] , int n){
     int maxValue = INT_MIN;
     for(int i = 0 ; i<n ; i++){

@@ -67,6 +67,7 @@ bool myHash :: erase(int key){
     while(hashTable[index] != -1){
         if(hashTable[index] == key){
             hashTable[index] = -2;
+            size--; // Updating the size of Hash Table //
             return true;
         }
         index = (index + 1)%capacity;

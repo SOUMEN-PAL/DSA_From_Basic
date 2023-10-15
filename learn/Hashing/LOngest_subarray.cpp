@@ -24,7 +24,7 @@ int longestSUbarraySum(int arr[] , int n , int sum){
     for(int i = 0 ; i<n ; i++){
         curr += arr[i];
         if(curr == sum){
-            res = max(res , i+1); // checking for 0 index subarray with curr == sum //
+            res = i+1; // checking for 0 index subarray with curr == sum // // it will be the longest //
         }
         if(mp.find(curr) == mp.end()){
             mp.insert({curr , i}); // adding unknown element only once //

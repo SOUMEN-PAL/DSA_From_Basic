@@ -37,9 +37,9 @@ int longestSUbarraySum(int arr[] , int n , int sum){
 }
 
 int main(){
-    int arr[]={5,8,-4,-4,9,-2 , 2};
+    int arr[]={5,-4,4,8,9,-2 , 2};
     int n = sizeof(arr)/sizeof(arr[0]);
-    int sum = 0;
+    int sum = 8;
     cout<<longest_sub(arr , n , sum)<<endl;
     cout<<longestSUbarraySum(arr , n , sum)<<endl;
     return 0;

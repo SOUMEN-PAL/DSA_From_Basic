@@ -1,35 +1,33 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
 
+int convertRoman(string& s){
+    map<char, int> m; 
+    m.insert({ 'I', 1 }); 
+    m.insert({ 'V', 5 }); 
+    m.insert({ 'X', 10 }); 
+    m.insert({ 'L', 50 }); 
+    m.insert({ 'C', 100 }); 
+    m.insert({ 'D', 500 }); 
+    m.insert({ 'M', 1000 }); 
 
-void threeWayPartition(vector<int>& array,int a, int b)
-    {
-        int l = 0, r = array.size() - 1;
-        for (int i = 0; i <= r; ) {
-            if (array[i] < a) {
-                swap(array[i], array[l]);
-                l++;
-                i++;
-            }
-            else if (array[i] > b) {
-                swap(array[i], array[r]);
-                r--;
-            }
-            else {
-                i++;
-            }
+    int res = 0;
+    for(int i = 0 ; i<s.length() ; i++){
+        if(m[s[i]] < m[s[i+1]]){
+            res += m[s[i+1]] - m[s[i]];
+            i++;
+            continue;
         }
-        
+        res += m[s[i]];
     }
-        
+    return res;
+}
 
 int main(){
+    string str = "MCMIV"; 
+    cout << "Integer form of Roman Numeral is " <<  
+             convertRoman(str) << endl; 
     
-    vector<int> arr = {30 ,47 ,91 ,48 ,71 ,52 ,81 ,32 ,94 ,58 ,28 ,13 ,87 ,15 ,56 ,13 ,91 ,13 ,80};
-    threeWayPartition(arr , 11 , 30);
-    for(int i : arr){
-        cout<<i<<" ";
-    }
     return 0;
 }

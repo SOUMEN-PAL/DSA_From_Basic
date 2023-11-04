@@ -1,33 +1,51 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
-
-int convertRoman(string& s){
-    map<char, int> m; 
-    m.insert({ 'I', 1 }); 
-    m.insert({ 'V', 5 }); 
-    m.insert({ 'X', 10 }); 
-    m.insert({ 'L', 50 }); 
-    m.insert({ 'C', 100 }); 
-    m.insert({ 'D', 500 }); 
-    m.insert({ 'M', 1000 }); 
-
-    int res = 0;
-    for(int i = 0 ; i<s.length() ; i++){
-        if(m[s[i]] < m[s[i+1]]){
-            res += m[s[i+1]] - m[s[i]];
-            i++;
-            continue;
-        }
-        res += m[s[i]];
+bool isPrime(int n){
+    if(n<=1){
+        return false;
     }
-    return res;
+    if(n == 2){ return true;}
+    
+    if(n%2 == 0){
+        return false;
+    }
+    for(int i = 3 ; i*i<=n ; i++){
+        if(n%i == 0){
+            return false;
+        }
+    }
+    return true;
 }
 
-int main(){
-    string str = "MCMIV"; 
-    cout << "Integer form of Roman Numeral is " <<  
-             convertRoman(str) << endl; 
-    
-    return 0;
+string winner(int n){
+        // sidha kam //
+        if(n%2 == 0){
+            return "Bob";
+        }
+        if(isPrime(n)){
+            return "Alice";
+        }
+        
+        // now agar alice ko jitna ha use koi odd number mila toh use prime uthana hoga right? then woh bas odd number utaigi right? jitne ke liye 
+        for(int p = 3 ; p < n ; p++){
+            if(isPrime(p)){
+                return "ALice";
+            }
+        }
+        return "Bob";
+}
+
+int main() {
+	// your code goes here
+	int t;
+	cin>>t;
+	while(t--){
+        int n;
+        cin>>n;
+        cout<<winner(n)<<endl;
+        
+        
+	}
+	return 0;
 }

@@ -27,7 +27,7 @@ int Hoores_partition(int arr[] , int l , int h){
 
 int main(){
 
-    int arr[] = {5,3,1,2,4};
+    int arr[] = {5,3,1,2,4,1};
     int n = sizeof(arr)/sizeof(arr[0]);
     int x = Hoores_partition(arr , 0 , n-1);
     for(int i = 0 ; i<n ; i++){

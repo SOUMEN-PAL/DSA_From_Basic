@@ -45,6 +45,7 @@ int factorial(int n){
 void Lexographic_rank(string s){
     
     int count[256] = {0};
+    int rank = 1;
 }
 
 

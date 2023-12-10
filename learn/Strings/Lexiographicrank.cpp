@@ -23,7 +23,7 @@ void Lexographic_rank(string s){
     sort(v.begin() , v.end());
     for(int i = 0 ; i<v.size() ; i++){
         if(v[i]==s){
-            cout<<i+1;
+            cout<<i+1<<endl;
             break;
         }
     }
@@ -42,15 +42,33 @@ int factorial(int n){
     return fact;
 }
 
-void Lexographic_rank(string s){
-    
+void eff_Lexographic_rank(string s){
+    int n = s.length();
+    int mul = factorial(n);
+    int rank = 1; // rank of the string //
     int count[256] = {0};
-    int rank = 1;
+    for(int i = 0 ; i<n ; i++){
+        count[s[i]]++; // storing the count of each character //
+    }
+    for(int i = 1 ; i<256 ; i++){
+        count[i] += count[i-1]; // storing the count of characters less than the current character //
+    }
+
+    for(int i = 0 ; i<=n-2 ; i++){
+        mul = mul/(n-i); // updating the factorial // // all the permutations of the remaining characters //
+        rank = rank + count[s[i] - 1] * mul; // updating the rank //
+        for(int j = s[i] ; j<256 ; j++){
+            count[j]--; // removing the current character from the count //
+        }
+    }
+    cout<<rank<<endl;
+    
 }
 
 
 int main(){
     Lexographic_rank("STRING");
+    eff_Lexographic_rank("STRING");
     
     return 0;
 }

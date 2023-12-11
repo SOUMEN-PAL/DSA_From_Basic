@@ -17,7 +17,7 @@ int longest_distinct(string s) {
     int n = s.length();
     int res = 0;
     for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
+        for (int j = i; j < n; j++) {
             if (isDistinct(s, i, j)) {
                 res = max(res, j - i + 1);
             }
@@ -28,6 +28,7 @@ int longest_distinct(string s) {
 }
 
 int main() {
-
+    string s = "geeksforgeeks";
+    cout << longest_distinct(s) << endl;
     return 0;
 }

@@ -50,11 +50,33 @@ int eff_longest_substring(string s){
     
 }
 
+// More Efficient solution //
+
+int mr_eff_longest_substring(string s){
+    int n = s.length();
+    int res = 0;
+    unordered_set<char> visited;
+    int i = 0 , j = 0;
+    while(i<n && j<n){
+        if(visited.find(s[j]) == visited.end()){
+            visited.insert(s[j]);
+            j++;
+            res = max(res , (int)visited.size());
+        }
+        else{
+            visited.erase(s[i]);
+            i++;
+        
+        }
+    }
+    return res;
+}
 
 int main() {
     string s = "geekeek";
     cout << longest_distinct(s) << endl;
     cout << eff_longest_substring(s) << endl;
+    cout << mr_eff_longest_substring(s) << endl;
 
     return 0;
 }

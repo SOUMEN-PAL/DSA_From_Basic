@@ -70,6 +70,7 @@ int mr_eff_longest_substring(string s){
         }
     }
     return res;
+    
 }
 
 int main() {

@@ -31,46 +31,62 @@ int longest_distinct(string s) {
 // Naive solution //
 // Time complexity: O(n^2)  Space complexity: O(1) //
 
-int eff_longest_substring(string s){
-    int n = s.length(); 
+int eff_longest_substring(string s) {
+    int n = s.length();
     int res = 0;
-    for(int i = 0; i < n; i++){
+    for (int i = 0; i < n; i++) {
         vector<bool> visited(256);
-        for(int j = i; j < n; j++){
-            if(visited[s[j]] == true){
+        for (int j = i; j < n; j++) {
+            if (visited[s[j]] == true) {
                 break;
             }
-            else{
-                res = max(res , j - i  + 1);
+            else {
+                res = max(res, j - i + 1);
                 visited[s[j]] = true;
             }
         }
     }
     return res;
-    
+
 }
 
 // More Efficient solution //
 
-int mr_eff_longest_substring(string s){
+int mr_eff_longest_substring(string s) {
     int n = s.length();
     int res = 0;
     unordered_set<char> visited;
-    int i = 0 , j = 0;
-    while(i<n && j<n){
-        if(visited.find(s[j]) == visited.end()){
+    int i = 0, j = 0;
+    while (i < n && j < n) {
+        if (visited.find(s[j]) == visited.end()) {
             visited.insert(s[j]);
             j++;
-            res = max(res , (int)visited.size());
+            res = max(res, (int)visited.size());
         }
-        else{
+        else {
             visited.erase(s[i]);
             i++;
-        
+
         }
     }
     return res;
-    
+
+}
+
+// GFG Solution //
+
+int gfg_longest_substring(string s) {
+    int n = s.length();
+    int res = 0;
+    vector<int> lastIndex(256, -1);
+    int i = 0, maxEnd;
+    for (int j = 0; j < n; j++) {
+        i = max(i, lastIndex[s[j]] + 1);
+        maxEnd = j - i + 1;
+        res = max(res, maxEnd);
+        lastIndex[s[j]] = j;
+    }
+    return res;
 }
 
 int main() {
@@ -78,6 +94,7 @@ int main() {
     cout << longest_distinct(s) << endl;
     cout << eff_longest_substring(s) << endl;
     cout << mr_eff_longest_substring(s) << endl;
+    cout << gfg_longest_substring(s) << endl;
 
     return 0;
 }

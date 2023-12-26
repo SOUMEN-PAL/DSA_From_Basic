@@ -3,7 +3,7 @@ using namespace std;
 
 class Node{
     public:
-        int data = NULL;
+        int data;
         Node*next;
 
         Node(int val){
@@ -13,7 +13,7 @@ class Node{
 };
 
 void traverse(Node* head){
-    if(head == NULL || head->data == NULL){
+    if(head == NULL){
         cout<<"Linked List is empty"<<endl;
         return;
     }
@@ -21,7 +21,15 @@ void traverse(Node* head){
         cout<<head->data<<" ";
         head = head->next;
     }
-    cout<<endl;
+}
+
+void rec_tra(Node* head){
+    if(head == NULL){
+        return;
+    }
+    cout<<head->data<<" ";
+    rec_tra(head->next);
+
 }
 
 int main(){
@@ -49,10 +57,10 @@ int main(){
     temp8->next = temp9;
     temp9->next = temp10;
 
-    Node *head1 = new Node(NULL);
-    traverse(head);
-    traverse(head1);
 
+    traverse(head);
+    cout<<endl;
+    rec_tra(head);
 
     return 0;
 }

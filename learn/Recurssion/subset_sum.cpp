@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+
+// return the count of number of subarrays of how many subsets are equals to the sum //
 int Nosub(int arr[] , int n , int sum){
     if(n==0){
         if(sum==0){

@@ -2,10 +2,9 @@
 using namespace std;
 
 int main(){
-    int a = 10 , b = 20;
-    int t = a;
-    a = b;
-    b = t;
+    unordered_set<int> s;
+    s.insert(2);
+    
 
 
     return 0;

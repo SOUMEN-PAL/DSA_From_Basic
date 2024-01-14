@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+// Operations of a circular linked list ..
 class Node{
     public:
         int data;
@@ -78,6 +79,81 @@ Node* insertBegin_Eff(Node* head , int x){
     return head;
 }
 
+// Insertion at the end of a circular linked list //
+Node* insertEnd(Node* head , int x){
+    Node* temp = new Node(x);
+    if(head == NULL){
+        temp->next = temp;
+        return temp;
+    }
+
+    Node* tail = head;
+    while(tail->next != head){
+        tail = tail->next;
+    }
+
+    temp->next = tail->next;
+    tail->next = temp;
+    return head;
+}
+
+Node* insertEnd_eff(Node* head , int x){
+    Node* temp = new Node(x);
+    if(head == NULL){
+        temp->next = temp;
+        return temp;
+    }
+
+    temp->next = head->next;
+    head->next = temp;
+    int t = head->data;
+    head->data = temp->data;
+    temp->data = t;
+    return temp;    
+}
+
+// Naive head deletion //
+Node* deleteHead(Node* head){
+    if(head == NULL){
+        return NULL;
+    }
+
+    if(head->next == head){
+        delete head;
+        return NULL;
+    }
+
+    Node* curr = head;
+    while(curr->next != head){
+        curr = curr->next;
+    }
+
+    curr->next = head->next;
+    delete head;
+    return curr->next;
+}
+
+// Efficient Head deletion algo //
+Node* deleteHeadEff(Node* head){
+    if(head == NULL){
+        return NULL;
+    }
+    if(head->next == head){
+        delete head;
+        return NULL;
+    }
+
+    Node* curr = head;
+    curr = curr->next;
+    int t = head->data;
+    head->data = curr->data;
+    curr->data = t;
+    head->next = curr->next;
+    delete curr;
+    return head;
+
+}
+
 int main(){
     Node* head = new Node(10);
     Node* h2 = new Node(20);
@@ -88,10 +164,21 @@ int main(){
     h3->next = h4;
     h4->next = head;
 
+    
+
     traverse(head);
     head = insertBegin_Eff(head , 50);
-    head = insertBegin(head , 500);
+    head = insertEnd_eff(head , 500);
     
     traverse(head);
+
+    head = deleteHead(head);
+
+    traverse(head);    
+
+    head = deleteHeadEff(head);
+
+    traverse(head);
+
     return 0;
 }

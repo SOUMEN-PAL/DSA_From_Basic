@@ -34,7 +34,7 @@ Node* swapkthNode(Node* head , int n , int k){
     Node* y = head;
     Node* preY = NULL;
 
-    for(int i = 1 ; i<k ; i++){
+    for(int i = 1 ; i<k ; i++){ 
         preX = x;
         x = x->next;
     }

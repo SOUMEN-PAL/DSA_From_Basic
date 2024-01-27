@@ -40,19 +40,9 @@ int MiddleOfLinkedList(Node* head){
 int main(){
     Node* head = new Node(10);
     Node* h2 = new Node(20);
-    Node* h3 = new Node(30);
-    Node* h4 = new Node(40);
-    Node* h5 = new Node(50);
-    Node* h6 = new Node(60);
-    Node* h7 = new Node(70);
-
+    
     head->next = h2;
-    h2->next = h3;
-    h3->next = h4;
-    h4->next = h5;
-    h5->next = h6;
-    h6->next = h7;
-
+    
     cout<<MiddleOfLinkedList(head)<<endl;
     return 0;
 }

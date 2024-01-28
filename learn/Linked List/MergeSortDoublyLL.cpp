@@ -28,7 +28,7 @@ Node* merge(Node* left , Node* right){
     Node *head=NULL,*tail=NULL;
     if(left->data<=right->data){
         head=tail=left;
-        left=left->next;
+        left=left->next; 
     }
     else{
         head=tail=right;
@@ -38,13 +38,13 @@ Node* merge(Node* left , Node* right){
         if(left->data<=right->data){
             tail->next=left;
             left->prev=tail;
-            tail=left;
+            tail=tail->next;
             left=left->next;
         }
         else{
             tail->next=right;
             right->prev=tail;
-            tail=right;
+            tail=tail->next;
             right=right->next;
         }
     }
@@ -81,11 +81,12 @@ void Traverse(Node *head){
 }
 
 int main(){
-    Node *head=new Node(10);
-    Node *temp1=new Node(90);
-    Node *temp2=new Node(30);
-    Node *temp3=new Node(20);
-    Node *temp4=new Node(40);
+    Node *head=new Node(1);
+    Node *temp1=new Node(2);
+    Node *temp2=new Node(3);
+    Node *temp3=new Node(4);
+    Node *temp4=new Node(6);
+    Node *temp5=new Node(5);
 
     head->next=temp1;
     temp1->prev=head;
@@ -95,6 +96,10 @@ int main(){
     temp3->prev=temp2;
     temp3->next=temp4;
     temp4->prev=temp3;
+    temp4->next=temp5;
+    temp5->prev=temp4;
+    
+
 
     Traverse(head);
     head=mergeSort(head);

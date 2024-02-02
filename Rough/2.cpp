@@ -1,91 +1,36 @@
-#include<bits/stdc++.h>
+#include <iostream>
+#include <vector>
+
 using namespace std;
 
-struct Node {
-    int data;
-    struct Node* next;
-    Node(int x) {
-        data = x;
-        next = NULL;
-    }
-};
-
-   struct Node* insert(struct Node* head , int x){
-        struct Node* temp = new Node(x);
-        if(head == NULL){
-            return temp;
-        }
-        struct Node* curr = head;
-        while(curr->next != NULL){
-            curr = curr->next;
-        }
-        curr->next = temp;
-        return head;
-    }
-    
-    struct Node* reverse(struct Node *head)
-    {
-        Node* curr = head;
-        Node* next = head;
-        Node* pre = NULL;
-        while(curr != NULL){
-            curr = curr->next;
-            next->next = pre;
-            pre = next;
-            next = curr;
-        }
-        return pre;
-    }
-    
-    struct Node* addTwoLists(struct Node* first, struct Node* second)
-    {   
-        
-        struct Node* res = NULL;
-        first = reverse(first);
-        second = reverse(second);
-        
-         int carry = 0;  // Initialize carry outside the loop
-
-    while (first != NULL || second != NULL || carry != 0) {
-        int sum = (first ? first->data : 0) + (second ? second->data : 0) + carry;
-        
-        if (sum < 10) {
-            res = insert(res, sum);
-            carry = 0;
-        } else {
-            res = insert(res, sum % 10);
-            carry = sum / 10;
-        }
-
-            if(first != NULL){
-                first = first->next;
-            }
-            if(second != NULL){
-                second = second->next;
-            }
-            
-        }
-        
-        res = reverse(res);
-        return res;
-        
+vector<int> constructPermutation(int N, int K) {
+    vector<int> permutation(N);
+    for (int i = 0; i < N; i++) {
+        permutation[i] = i + 1;
     }
 
-int main(){
+    // Swap adjacent elements to make the sum odd
+    for (int i = 0; i < N - 1 && K > 0; i += 2, K--) {
+        swap(permutation[i], permutation[i + 1]);
+    }
 
-    Node* head1 = new Node(1);
-    head1->next = new Node(0);
-    head1->next->next = new Node(1);
+    return permutation;
+}
 
-    Node* head2 = new Node(1);
-    head2->next = new Node(0);
-    head2->next->next = new Node(9);
+int main() {
+    int T;
+    cin >> T;
 
-    Node* res = addTwoLists(head1 , head2);
+    while (T--) {
+        int N, K;
+        cin >> N >> K;
 
-    while(res != NULL){
-        cout<<res->data<<" ";
-        res = res->next;
+        vector<int> permutation = constructPermutation(N, K);
+
+        for (int i = 0; i < N; i++) {
+            cout << permutation[i] << " ";
+        }
+        cout << endl;
     }
 
     return 0;

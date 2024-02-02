@@ -65,6 +65,9 @@ int firstNodeOfLoop(Node *head){
     Node *fast = head;
 
     do{
+        if(fast == NULL || fast->next == NULL){
+            return -1;
+        }
         slow = slow->next;
         fast = fast->next->next;
     }while(slow != fast);

@@ -80,6 +80,50 @@ int firstNodeOfLoop(Node *head){
     return slow->data;
 }
 
+    void removeLoop(Node* head)
+    {
+        if(head == NULL || head->next == NULL){
+            return;
+        }
+        Node* slow = head , *fast = head;
+        
+        while(fast != NULL && fast->next != NULL){
+            slow = slow->next;
+            fast = fast->next->next;
+            if(slow == fast){
+                break;
+            }
+        }
+        if(slow != fast){
+            return;
+        }
+        
+        slow = head;
+        
+        while(slow->next != fast->next){
+            slow = slow->next;
+            fast = fast->next;
+        }
+        if(slow == head){
+            while(slow->next != head){
+                slow = slow->next;
+            }
+            slow->next = NULL;
+        }
+        else{
+            fast = fast->next;
+        }
+    }
+
+void Traverse(Node *head){
+    Node *curr = head;
+    while(curr != NULL){
+        cout<<curr->data<<" ";
+        curr = curr->next;
+    }
+    cout<<endl;
+}
+
 int main(){
     Node *head = new Node(10);
     Node *h2 = new Node(20);
@@ -91,7 +135,7 @@ int main(){
     h2->next = h3;
     h3->next = h4;
     h4->next = h5;
-    h5->next = h2;
+    h5->next = head;
 
     if(isLoopTor(head)){
         cout<<"Loop detected at: "<<firstNodeOfLoop(head)<<endl;
@@ -99,7 +143,8 @@ int main(){
         cout<<"Loop not present"<<endl;
     }
 
-    
+    removeLoop(head);
+    Traverse(head);
 
     return 0;
 }

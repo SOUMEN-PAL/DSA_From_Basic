@@ -1,37 +1,67 @@
-#include <iostream>
-#include <vector>
-
+#include<bits/stdc++.h>
 using namespace std;
 
-vector<int> constructPermutation(int N, int K) {
-    vector<int> permutation(N);
-    for (int i = 0; i < N; i++) {
-        permutation[i] = i + 1;
-    }
+class Node {
+    public:
+        int data;
+        Node *next;
+        Node(int d){
+            data = d;
+            next = NULL;
+        }
 
-    // Swap adjacent elements to make the sum odd
-    for (int i = 0; i < N - 1 && K > 0; i += 2, K--) {
-        swap(permutation[i], permutation[i + 1]);
-    }
+};
 
-    return permutation;
+void Traverse(Node *head){
+    Node *temp = head;
+    while(temp != NULL){
+        cout<<temp->data<<" ";
+        temp = temp->next;
+    }
+    cout<<endl;
 }
 
-int main() {
-    int T;
-    cin >> T;
-
-    while (T--) {
-        int N, K;
-        cin >> N >> K;
-
-        vector<int> permutation = constructPermutation(N, K);
-
-        for (int i = 0; i < N; i++) {
-            cout << permutation[i] << " ";
-        }
-        cout << endl;
+Node *reverse(Node *head){
+    Node *prev = NULL;
+    Node *curr = head;
+    Node *next = NULL;
+    while(curr != NULL){
+        next = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = next;
     }
+    return prev;
+}
 
+Node *removeStartingZeroes(Node *head){
+    Node *curr = head;
+    while(curr != NULL && curr->data == 0){
+        curr = curr->next;
+    }
+    return curr;
+}
+
+int main(){
+    Node *head = new Node(0);
+    Node *temp1 = new Node(0);
+    Node *temp2 = new Node(0);
+    Node *temp3 = new Node(4);
+    Node *temp4 = new Node(5);
+    Node *temp5 = new Node(6);
+
+    head->next = temp1;
+    temp1->next = temp2;
+    temp2->next = temp3;
+    temp3->next = temp4;
+    temp4->next = temp5;
+
+    Traverse(head);
+    head = removeStartingZeroes(head);
+    Traverse(head);
+    head = reverse(head);
+    Traverse(head);
+    
+        
     return 0;
 }

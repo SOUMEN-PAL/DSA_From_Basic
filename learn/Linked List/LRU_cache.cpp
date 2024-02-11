@@ -66,7 +66,7 @@ public:
 		cout << "Going to set the (key,  value) : (" << key << ", " << value << ")"<< endl;\
 		if(map.find(key) != map.end()){
 			Node *node = map[key];
-			node->value = value;
+			node->value = value; // the value associated me be out dated thats why
 			deleteNode(node);
 			addToHead(node);
 		}
@@ -80,6 +80,7 @@ public:
 			else{
 				map.erase(tail->prev->key);// key of the linke dlist is being used for removal //
 				deleteNode(tail->prev);
+				delete(tail->prev);
 				addToHead(node);
 			}
 		}

@@ -90,6 +90,7 @@
         "stacktrace": "cpp",
         "stdfloat": "cpp",
         "stop_token": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "stack": "cpp"
     }
 }

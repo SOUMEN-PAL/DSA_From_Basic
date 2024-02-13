@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+// Fixed Array Stack //
 class Mystack{
     private:
         int *arr;
@@ -49,6 +50,36 @@ class Mystack{
 };
 
 
+// Dynamic Array Stack //
+class myStack{
+    private:
+        vector<int> arr;
+
+    public:
+        
+        void push(int d){
+            arr.emplace_back(d);
+        }
+
+        int pop(){
+            int res = arr.back();
+            arr.pop_back();
+            return res;
+        }
+
+        void seek(){
+            cout<<arr.back()<<endl;
+        }
+
+        void size(){
+            cout<<arr.size()<<endl;
+        }
+
+        bool isEmpty(){
+            return arr.empty();
+        }
+};
+
 int main(){
     
     Mystack s(5);
@@ -60,6 +91,11 @@ int main(){
     s.push(50);
     s.push(60);
     s.seek();
+
+
+    myStack st;
+    st.push(10);
+    st.seek();
     
     return 0;
 }

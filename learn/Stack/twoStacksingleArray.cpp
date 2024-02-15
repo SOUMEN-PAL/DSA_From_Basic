@@ -92,6 +92,73 @@ class myStack{
 
 };
 
+// second Implementation //
+class myStack2{
+    private:
+        int cap;
+        int *arr;
+        int top1 , top2;
+
+    public:
+        myStack2(int n){
+            cap = n;
+            arr = new int[cap];
+            top1 = -1;
+            top2 = cap;
+        }
+
+        bool push1(int x){
+            if(top1 < top2 - 1){
+                top1++;
+                arr[top1] = x;
+                return true;
+            }
+            return false;
+        }
+
+        bool push2(int x){
+            if(top1 < top2 - 1){
+                top2--;
+                arr[top2] =  x;
+                return true;
+            }
+            return false;
+        }
+
+        int pop1(){
+            int *temp = NULL;
+            if(top1>=0){
+                int res = arr[top1];
+                top1--;
+                return res;
+            }
+            return *temp;
+        }
+
+        int pop2(){
+            int *temp = NULL;
+            if(top2<cap){
+                int res = arr[top2];
+                top2++;
+                return res;
+            }
+            return *temp;
+        }
+
+        int size1(){
+            return top1 + 1;
+        }
+
+        int size2(){
+            return cap - top2;
+        }
+        
+        void Top(){
+            cout<<arr[top1]<<" "<<arr[top2]<<endl;
+        }
+
+};
+
 
 
 int main(){
@@ -105,6 +172,15 @@ int main(){
 
     cout<<s.seek1()<<endl;
     cout<<s.seek2()<<endl;
+
+
+    myStack2 st(10);
+
+    st.push1(10);
+    st.push1(20);
+    st.push2(10);
+    st.Top();
+
 
     return 0;
 }

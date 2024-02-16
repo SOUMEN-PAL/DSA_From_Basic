@@ -54,9 +54,13 @@ int main(){
     s.push(20 , 0);
     s.push(20 , 0);
     s.push(20 , 0);
-    s.push(20 , 0);
-    s.push(20 , 0);
-    cout<<s.pop(0);
+    s.push(30 , 0);
+    
+    cout<<s.pop(0)<<endl;
+
+    s.push(10 , 1);
+    s.push(20 , 1);
+    cout<<s.pop(1)<<endl;
 
     return 0;
 }

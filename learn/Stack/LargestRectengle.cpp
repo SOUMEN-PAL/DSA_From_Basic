@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int maxArea(int arr[] , int n){
+int maxArea(vector<int> arr , int n){
     int res = 0;
     stack<int> s;
     for(int i = 0 ; i<n ; i++){
@@ -24,18 +24,15 @@ int maxArea(int arr[] , int n){
 }
 
 int largestRectengle(vector<vector<int>> vec , int n , int m){
-        int ans = INT_MIN;
-        int arr[m] = {0};
-        for(int i = 0 ; i<n ; i++){
+        int ans = maxArea(vec[0] , m);
+
+        for(int i = 1 ; i<n ; i++){
             for(int j = 0 ; j<m ; j++){
                 if(vec[i][j] == 1){
-                    arr[j] = arr[j] + vec[i][j];
-                }
-                else{
-                    arr[j] = 0;
+                    vec[i][j] = vec[i-1][j] + vec[i][j];
                 }
             }
-            int res = maxArea(arr , m);
+            int res = maxArea(vec[i] , m);
             ans = max(res , ans);
         }
         return ans;

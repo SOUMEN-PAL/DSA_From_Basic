@@ -1,23 +1,19 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void subset(string s , string a = "" , int i = 0){
-    
-    if(i==s.size()){
-        cout<<a<<" ";
-        return;
-    }
 
-    subset(s , a , i+1);
-    subset(s , a+s[i], i+1);
-
-
-}
 
 
 
 int main(){
-    subset("abc");
+    string s = "abc";
+    for(int i = 0 ; i<s.length() ; i++){
+        string p;
+        p.append(1 ,s[i]);
+        cout<<p<<endl;
+
+
+    }
 
 
 

@@ -54,7 +54,7 @@ string infixToPostFix(string s){
 
 int main(){
     
-    string str = "a-b*c+g";
+    string str = "a+b*c";
     cout<<infixToPostFix(str)<<endl;
 
 

@@ -53,7 +53,7 @@ int evalPostFix(string s){
 }
 
 int main(){
-    string s = "2 2 2 ^ ^";
+    string s = "100 200 + 2 / 5 * 7 +";
     cout<<evalPostFix(s);
     return 0;
 }

@@ -60,7 +60,7 @@ string infixToPrefix(string s){
 }
 
 int main(){
-    string s = "a^b^c";
+    string s = "6/3+2";
     cout<<infixToPrefix(s)<<endl;
     return 0;
 }

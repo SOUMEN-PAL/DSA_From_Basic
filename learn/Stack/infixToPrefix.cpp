@@ -37,11 +37,19 @@ string infixToPrefix(string s){
         }
         else{
             //its an operator //
-            while(st.empty() != true && prec(x)<prec(st.top())){
-                res = res + st.top();
-                st.pop();
+            if(x == '^'){
+                while(st.empty() != true && prec(x)<=prec(st.top())){
+                    res = res + st.top();
+                    st.pop();
+                }
             }
-            st.push(x); // we need to push the current operator after all the operations as its remaning and its > top() of the stack //
+            else{
+                while(st.empty() != true && prec(x)<prec(st.top())){
+                    res = res + st.top(); // = nahi ha kyuki jo aa raha ha a woh left to right associativity me obiously age ha //
+                    st.pop();
+                }
+            }
+            st.push(x); // we need to push the current operator after all the operations as its remaning and its > top() of the stack //  
         }
     }
     while(st.empty() == false){
@@ -52,7 +60,7 @@ string infixToPrefix(string s){
 }
 
 int main(){
-    string s = "a+b*C";
+    string s = "a^b^c";
     cout<<infixToPrefix(s)<<endl;
     return 0;
 }

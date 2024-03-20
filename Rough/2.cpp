@@ -1,19 +1,38 @@
 #include<bits/stdc++.h>
 using namespace std;
-	    void helper(string s , vector<string> &res , string a = "" , int i = 0){
-	        if(i == s.size()){
-	            res.push_back(a);
-	        }
-	        
-	        helper(s  , res , a , i+1);
-	        helper(s , res , a+s[i] , i+1);
-	    }
-int main(){
-    string s = "abc";
+
+vector<string> doesCircleExist(vector<string> commands) {
     vector<string> res;
-    helper(s , res);
-    for(auto i : res){
-        cout<<i<<" ";
+    for (const string& cmd : commands) {
+        int x = 0, y = 0; 
+        int dir = 0; // 0: up, 1: right, 2: down, 3: left
+        
+        for (char c : cmd) {
+            if (c == 'G') {
+                if (dir == 0) y++;
+                else if (dir == 1) x++;
+                else if (dir == 2) y--;
+                else x--;
+            }
+            else if (c == 'L') {
+                dir = (dir + 3) % 4; // left mu raha ha
+            }
+            else if (c == 'R') {
+                dir = (dir + 1) % 4; // right mur raha ha
+            }
+        }
+        
+        
+        if ((x == 0 && y == 0) || dir != 0) {
+            res.push_back("YES");
+        } else {
+            res.push_back("NO");
+        }
     }
+    return res;
+}
+
+int main(){
+    
     return 0;
 }

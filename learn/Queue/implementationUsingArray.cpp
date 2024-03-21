@@ -85,7 +85,7 @@ class Queue{
         }
 
         int getFront(){
-            if(isFull){
+            if(isFull()){
                 return -1;
             }
             return front;
@@ -106,16 +106,23 @@ class Queue{
             arr[rearer] = x;
             size++;
         }
+        void deque(){
+            if(isEmpty()){
+                return;
+            }
+            front = (front + 1)%cap;
+            size--;
+        }
 };
 
 
 int main(){
      
-    myQueue mq(5);
+    Queue mq(5);
     
-    mq.enQue(10);
-    mq.enQue(20);
-    mq.enQue(30);
+    mq.enque(10);
+    mq.enque(20);
+    mq.enque(30);
     cout<<mq.getFront()<<endl;
     mq.deque();
     cout<<mq.getFront()<<endl;

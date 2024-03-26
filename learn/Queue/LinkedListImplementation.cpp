@@ -64,6 +64,9 @@ class myQueue{
             }
             return rear->data;
         }
+        int Size(){
+            return size;
+        }
 };
 
 int main(){
@@ -72,6 +75,7 @@ int main(){
     mq.enque(10);
     mq.enque(20);
     mq.enque(30);
+    cout<<mq.Size()<<endl;
     mq.dequeue();
     mq.dequeue();
     mq.dequeue();

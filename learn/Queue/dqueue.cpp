@@ -75,6 +75,7 @@ class MyDeque{
 };
 
 //Circular array based implementation //
+// No space would be left //
 class myDque{
 private:
     int front, size, cap, *arr;

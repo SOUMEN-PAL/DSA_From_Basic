@@ -48,7 +48,7 @@ void MaxOfEverySubarrayOfSizeK(int arr[] , int n , int k){
 
 
 int main(){
-    int arr[] = {10 , 20 , 8 , 15 , 12 , 23};
+    int arr[] = {1 ,2 ,3 ,1 ,4 ,5 ,2 ,3 ,6};
     int n = sizeof(arr)/sizeof(arr[0]);
     int k = 3;
     maxMinOfSubarray(arr , n , k);

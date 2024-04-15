@@ -20,6 +20,7 @@ int max_andvalue(int arr[] , int n){
         if(count>=2){
             res = res|(1<<bit);
         }
+
     }
     return res;
 }

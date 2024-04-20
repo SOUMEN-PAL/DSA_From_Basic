@@ -107,6 +107,37 @@ void levelOrderLine(Node *root)
 }
 
 
+// Efficient Line by Line //
+
+void levelOrderLineByLine(Node * root){
+    if(root == NULL){
+        return;
+    }
+
+    queue<Node *> q;
+    q.push(root);
+
+    while(!q.empty()){
+        
+        int count = q.size();
+        for(int i = 0 ; i<count ; i++){
+            Node *curr = q.front();
+            cout<<curr->data<<" ";
+            q.pop();
+            if(curr->left != NULL){
+                q.push(curr->left);
+            }
+            if(curr->right != NULL){
+                q.push(curr->right);
+            }
+        }
+        cout<<endl;
+    }
+
+}
+
+
+
 int main(){
 
     Node *root = new Node(10);
@@ -129,7 +160,7 @@ int main(){
     l2->right = r4;
     
     // leverOrder(root);
-    levelOrderLine(root);
+    levelOrderLineByLine(root);
 
     return 0;
 }

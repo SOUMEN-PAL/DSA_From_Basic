@@ -80,7 +80,7 @@ int mis(int arr[] , int n){
 
 int main(){
     
-    int arr[] = {1 ,2 ,3 ,4 ,5};
+    int arr[] = {1 ,5 ,3 ,4 ,5};
     int n = sizeof(arr) / sizeof(arr[0]);
     cout<<missing(arr , n)<<endl;
 

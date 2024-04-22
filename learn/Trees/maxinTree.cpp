@@ -16,42 +16,31 @@ public:
 };
 
 
-int size(Node * root){
+// Normal traversal and checking //
+int max_in_tree(Node * root){
     if(root == NULL){
-        return 0;
-    }
-
-    else{
-        return 1 + size(root->left) + size(root->right);
-    }
-}
-
-
-// Itreative solution //
-int treeSize(Node * root){
-    if(root == NULL){
-        return 0;
+        return INT_MIN;
     }
 
     queue<Node *> q;
+    int hs = INT_MIN;
     q.push(root);
-    int count = 1;
-    while(!q.empty()){
+    
+    while(!q.empty())
+    {
         Node *curr = q.front();
         q.pop();
+        hs = max(hs , curr->data);
         if(curr->left != NULL){
-            count++;
             q.push(curr->left);
         }
-        if(curr->right != NULL){
-            count++;
+        if(curr->right != NULL)
+        {
             q.push(curr->right);
         }
     }
-    return count;
-
+    return hs;
 }
-
 
 int main(){
     Node *root = new Node(10);
@@ -73,7 +62,7 @@ int main(){
     l2->left = l4;
     l2->right = r4;
 
-    cout<<size(root)<<" "<<treeSize(root)<<endl;
+    cout<<max_in_tree(root)<<endl;
 
     return 0;
 }

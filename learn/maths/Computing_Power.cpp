@@ -40,7 +40,7 @@ int power(int x, int n)
     while (n > 0)
     {
         if (n&1){
-            res=res*x;
+            res=res*x; // res Odd waleh part ka phele hi confiugration ho chuka hoga //
         }
         x=x*x;
         n=n>>1;

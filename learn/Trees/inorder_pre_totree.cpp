@@ -35,6 +35,22 @@ Node *traversalToTree(int in[] , int pre[] , int n ,int is , int ie){
     return root;
 }
 
+//Efficient solution for tree construction
+// just use a map to store the index of inorder traversal
+Node *buildTree(int pre[], int inStrt, int inEnd, unordered_map<int, int> &mp) {
+    static int preIndex = 0;
+    if (inStrt > inEnd) return NULL;
+    Node* tNode = new Node(pre[preIndex++]);
+    if (inStrt == inEnd) return tNode;
+    int inIndex = mp[tNode->data];
+    tNode->left = buildTree( pre, inStrt, inIndex - 1, mp);
+    tNode->right = buildTree(pre, inIndex + 1, inEnd, mp);
+    return tNode;
+}
+
+
+
+
 void inOrder(Node *root){
     if(root == NULL){return;}
     inOrder(root->left);
@@ -60,7 +76,13 @@ int main(){
     int inOrderArr[] = {40,20,50,10,30,30};
     int preOrderArr[] = {10,20,40,50,30,30};
 
-    Node *head = traversalToTree(inOrderArr , preOrderArr , 6 , 0 , 5);
+    unordered_map<int , int> mp;
+    for(int i  = 0 ; i<6 ; i++){
+        mp[inOrderArr[i]] = i;
+    }
+
+    Node *head = buildTree(preOrderArr , 0 , 5 , mp);
+    
     inOrder(head);
 
     return 0;

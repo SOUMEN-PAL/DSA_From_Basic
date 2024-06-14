@@ -64,3 +64,11 @@ UPDATE employee SET date_of_joining = '2021-01-04' WHERE emp_id = 4;
 UPDATE employee SET date_of_joining = '2021-01-05' WHERE emp_id = 5;
 
 SELECT * FROM employee;
+
+
+-- now increase the size of varchar of name to 100 in employee table
+
+ALTER TABLE employee
+MODIFY name VARCHAR(100);
+
+SELECT * FROM employee;

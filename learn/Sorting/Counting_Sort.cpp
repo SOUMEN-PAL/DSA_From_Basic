@@ -39,9 +39,9 @@ void Count_Sort(int arr[] , int n , int k){
 
 
 int main(){
-    int arr[] = {1,4,4,2,0,1};
+    int arr[] = {1,1,4,0,2,3};
     int n = sizeof(arr)/sizeof(arr[0]);
-    int k = 5;
+    int k = 5; // its the range 
     Count_Sort(arr , n , k);
     for(int i = 0 ; i<n ; i++){
         cout<<arr[i]<<" ";

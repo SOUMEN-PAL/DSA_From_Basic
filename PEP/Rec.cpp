@@ -48,8 +48,8 @@ int contain(vector<int> arr , int target){
 }
 
 // all indices of a target
-vector<int> res;
 vector<int> allIndx(vector<int> &arr , int target , int indx){
+    static vector<int> res;
     if(indx == arr.size()){
         res.push_back(-1);
         return res;
@@ -62,14 +62,16 @@ vector<int> allIndx(vector<int> &arr , int target , int indx){
     return res;
 }
 
-int climbStairs(int n){
+int climbStairs(int n , string psf){
     if(n == 0){
+        cout<<psf<<endl;
         return 1;
     }
     if(n<0){
         return 0;
     }
-    int ans = climbStairs(n-1) + climbStairs(n-2) + climbStairs(n-3);
+    
+    int ans = climbStairs(n-1 , psf + "1") + climbStairs(n-2 , psf + "2") + climbStairs(n-3 ,psf + "3");
     return ans;
 }
 
@@ -93,13 +95,24 @@ int poww(int a, int b){
 }
 
 
-
+//FInd the min in a vector
+void findMIn(vector<int> &arr , int indx , int &min){
+    if(indx == arr.size()){
+        cout<<min<<endl;
+        return;
+    }
+    if(arr[indx]<min){
+        min = arr[indx];
+    }
+    findMIn(arr,indx+1,min);
+    
+}
 
 int main(){
     
-    // int res = climbStairs(3);
-    // cout<<res<<endl;
-    cout<<poww(2 , 3)<<endl;
+    int res = climbStairs(5 , "");
+    cout<<res<<endl;
+   
 
     return 0;
 }

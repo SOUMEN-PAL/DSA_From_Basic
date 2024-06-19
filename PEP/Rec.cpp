@@ -108,10 +108,82 @@ void findMIn(vector<int> &arr , int indx , int &min){
     
 }
 
+
+// Infinite coins //
+int sing_coin(vector<int> &arr , int idx , int target){
+    if(target == 0){
+        return 1;
+    }
+    if(target<0){
+        return 0;
+    }
+    if(idx == arr.size()){
+        return 0;
+    }
+    int ans = sing_coin(arr , idx , target - arr[idx]) + sing_coin(arr , idx+1 , target);
+    return ans;
+}
+
+
+
+
+// Alternate Approach //
+int helper(vector<int> & arr , int idx , int target){
+
+    if(target==0){
+        return 1;
+    }
+    
+    int ans = 0;
+    for(int i = idx ; i<arr.size() ; i++){
+        if(arr[i] <= target){
+            ans += helper(arr , i + 1 , target - arr[i]);
+        }
+    }
+    return ans;
+}
+
+int helperInfi(vector<int> & arr , int idx , int target){
+
+    if(target==0){
+        return 1;
+    }
+    
+    int ans = 0;
+    for(int i = idx ; i<arr.size() ; i++){
+        if(arr[i] <= target){
+            ans += helperInfi(arr , i + 1 , target - arr[i]);
+        }
+    }
+    return ans;
+}
+
+
+// Coin permu
+int helperPermu(vector<int> & arr , int idx , int target){
+
+    if(target==0){
+        return 1;
+    }
+    
+    int ans = 0;
+    for(int i = 0 ; i<arr.size() ; i++){
+        if(arr[i] <= target){
+            ans += helperPermu(arr , i , target - arr[i]);
+        }
+    }
+    return ans;
+}
+
+
+
+
+
 int main(){
     
-    int res = climbStairs(5 , "");
-    cout<<res<<endl;
+    vector<int> arr = {1,2,3};
+    int target = 4;
+    cout<<helper(arr , 0 , target);
    
 
     return 0;

@@ -40,11 +40,12 @@ bool areSame(int count[] , int count1[]){
     return true;
 }
 
-bool isPresent(string txt , string pat){
+vector<int> isPresent(string txt , string pat){
     int n = txt.length();
     int m = pat.length();
     int count[256] = {0};
     int count1[256] = {0};
+    vector<int> res;
     for(int i = 0 ; i<m ; i++){
         count[txt[i]]++;
         count1[pat[i]]++;
@@ -52,23 +53,33 @@ bool isPresent(string txt , string pat){
 
     for(int i = m ; i<n ; i++){
         if(areSame(count , count1)){
-            return true;
+            res.push_back(i-m);
         
         }
 
         count[txt[i]]++;
         count[txt[i-m]]--;
     }
-    return false;
+
+    if(areSame(count , count1)){
+        res.push_back(n-m);
+    }
+
+    return res;
 }
 
 
 int main(){
 
-    string s = "geeksforgeeks";
-    string p = "frog";
+    string s = "abab";
+    string p = "ab";
     cout<<Aanagram_search(s , p)<<endl;
-    cout<<isPresent(s , p)<<endl;
+    // cout<<isPresent(s , p)<<endl;
+
+    vector<int> res = isPresent(s , p);
+    for(auto i : res){
+        cout<<i<<endl;
+    }
     
     return 0;
 }

@@ -17,7 +17,7 @@ int evalPostFix(string s){
                 res = (res*10) + (s[i]-'0');
                 i++;
             }
-            i--;
+            i--;// while loop isdigit ke age jake band hoga iss liye i--;
             st.push(res);
         }
         else{

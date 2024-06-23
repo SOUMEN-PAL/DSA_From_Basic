@@ -23,10 +23,10 @@ string infixToPostFix(string s){
     for(int i = 0 ; i<n ; i++){
         int x = s[i];
         if((x>='a' && x<='z') || (x>='A' && x<='Z') || (x>='0' && x<='9')){
-            res.push_back(x);
+            res.push_back(x);//string me
         }
         else if(x == '('){
-            st.push(x);
+            st.push(x);//stack me
         }
         else if(x == ')'){
             while(st.top() != '('){

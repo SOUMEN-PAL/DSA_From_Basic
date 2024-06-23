@@ -170,3 +170,219 @@ SELECT * FROM student WHERE name LIKE '%nc%';
 
 SELECT name FROM student WHERE address != 'Delhi' AND marks > 75;
 
+
+
+use PEP;
+
+--print the students whose city name ends with I
+
+SELECT * FROM student WHERE address LIKE '%i';
+
+-- id lies between 3 - 7
+
+SELECT * FROM student WHERE rg_no BETWEEN 3 AND 7;
+
+--students not from noida
+
+SELECT * FROM student WHERE address != 'Noida';
+
+-- example  of aggregrate functions
+
+SELECT COUNT(*) FROM student;
+
+SELECT AVG(marks) FROM student;
+
+SELECT SUM(marks) FROM student;
+
+SELECT MAX(marks) FROM student;
+
+SELECT MIN(marks) FROM student;
+
+SELECT COUNT(DISTINCT address) FROM student;
+
+SELECT COUNT(DISTINCT address) FROM student WHERE marks > 75;
+
+SELECT COUNT(DISTINCT address) FROM student WHERE marks > 75 AND attendence > 70;
+
+SELECT COUNT(DISTINCT address) FROM student WHERE marks > 75 OR attendence > 70;
+
+SELECT COUNT(DISTINCT address) FROM student WHERE marks > 75 AND attendence > 70;
+
+SELECT COUNT(DISTINCT address) FROM student WHERE marks > 75 AND attendence > 70 AND address = 'Noida';
+
+SELECT COUNT(DISTINCT address) FROM student WHERE marks > 75 AND attendence > 70 AND address = 'Noida' OR address = 'Delhi';
+
+SELECT COUNT(DISTINCT address) FROM student WHERE marks > 75 AND attendence > 70 AND address = 'Noida' AND address = 'Delhi';
+
+SELECT COUNT(DISTINCT address) FROM student WHERE marks > 75 AND attendence > 70 AND address = 'Noida' AND address = 'Delhi' OR address = 'Ghaziabad';
+
+--date of admission who has maximum marks
+
+SELECT date_of_addmission FROM student WHERE marks = (SELECT MAX(marks) FROM student);
+
+--detail of studen who have more than average marks
+
+SELECT * FROM student WHERE marks > (SELECT AVG(marks) FROM student);
+
+
+
+SELECT count(*) FROM student WHERE marks > (SELECT AVG(marks) FROM student);
+
+--naem sof student less than max marks
+
+SELECT name FROM student WHERE marks < (SELECT MAX(marks) FROM student);
+
+-- name of student scored more than max marks in noida
+
+SELECT name FROM student WHERE marks > (SELECT MAX(marks) FROM student) AND address = 'Noida';
+
+
+--average marks of studens from Noida mathura and RAchi
+
+SELECT AVG(marks) FROM student WHERE address = 'Noida' OR address = 'Mathura' OR address = 'Rachi';
+
+--average marks of student who do not belong to amritsar
+
+SELECT AVG(marks) FROM student WHERE address != 'Amritsar';
+
+-- avg marks of student not from amritsar and having attendence more than 70
+
+SELECT AVG(marks) FROM student WHERE address != 'Amritsar' AND attendence > 70;
+
+--details of students who have koined after 2021
+
+SELECT * FROM student WHERE date_of_addmission > '2021-01-01';
+
+--Insert some values with address Jalandhar amritsar and mathura with random date of admission
+
+INSERT INTO student VALUES(7,'G','Jalandhar',60,50,'2021-01-07');
+INSERT INTO student VALUES(8,'H','Amritsar',70,60,'2021-01-08');
+INSERT INTO student VALUES(9,'I','Mathura',80,70,'2021-01-09');
+
+
+SELECT * FROM student;
+
+-- add another attribute section in student table
+
+ALTER TABLE student
+ADD section VARCHAR(10);
+
+-- add some values in section
+
+UPDATE student SET section = 'A' WHERE rg_no = 1;
+UPDATE student SET section = 'B' WHERE rg_no = 2;
+UPDATE student SET section = 'B' WHERE rg_no = 3;
+UPDATE student SET section = 'D' WHERE rg_no = 4;
+UPDATE student SET section = 'A' WHERE rg_no = 5;
+UPDATE student SET section = 'B' WHERE rg_no = 6;
+UPDATE student SET section = 'G' WHERE rg_no = 7;
+UPDATE student SET section = 'H' WHERE rg_no = 8;
+UPDATE student SET section = 'I' WHERE rg_no = 9;
+
+SELECT * FROM student;
+
+-- select student from section b
+
+SELECT * FROM student WHERE section = 'B';
+
+--example of group by
+
+SELECT address , COUNT(*) FROM student GROUP BY address;
+
+--Groupby section
+
+SELECT section , COUNT(*) FROM student GROUP BY section;
+
+--name of sections where students have marks more than average marks
+
+SELECT section FROM student WHERE marks > (SELECT AVG(marks) FROM student) GROUP BY section;
+
+--names of student got more than average marks obtained among 3 sections
+
+
+
+SELECT name FROM student WHERE marks > (SELECT AVG(marks) FROM student) GROUP BY name;
+
+--no of student from different cities in each section
+
+SELECT address , section , COUNT(*) FROM student GROUP BY address , section;
+
+--who has maximum marks in each section
+
+SELECT section , MAX(marks) FROM student GROUP BY section;
+
+
+--max marks in each section this max marks is more than the average marks
+
+SELECT section , MAX(marks) FROM student WHERE marks > (SELECT AVG(marks) FROM student) GROUP BY section;
+
+--createa two table employee and department with the following fields EmpID , EmployeeName , DeptName and in Dapartment table DeptID , DeptName add EmpId as primary key and DeptId as foreign key
+
+create DATABASE Company;
+use Company;
+
+
+CREATE TABLE employee(
+    EmpID INT PRIMARY KEY,
+    EmployeeName VARCHAR(50),
+    DeptName INT
+);
+
+-- add foreign key of DeptName in employee table to DeptID in department table
+
+CREATE TABLE department(
+    DeptID INT PRIMARY KEY,
+    DeptName VARCHAR(50)
+);
+
+ALTER TABLE employee
+ADD FOREIGN KEY (DeptName) REFERENCES department(DeptID);
+
+
+--insert values in department table with dept name as CSE , ECE , Mech , Civil
+
+INSERT INTO department VALUES(1,'CSE');
+INSERT INTO department VALUES(2,'ECE');
+INSERT INTO department VALUES(3,'Mech');
+INSERT INTO department VALUES(4,'Civil');
+
+SELECT * FROM department;
+
+--insert values in employee table with EmpID 1 , 2 , 3 , 4 , 5 , 6 and EmployeeName as A , B , C , D , E , F and DeptName as 1 , 2 , 3 , 4 , 1 , 2
+
+INSERT INTO employee VALUES(1,'A',1);
+INSERT INTO employee VALUES(2,'B',2);
+INSERT INTO employee VALUES(3,'C',3);
+INSERT INTO employee VALUES(4,'D',4);
+INSERT INTO employee VALUES(5,'E',1);
+INSERT INTO employee VALUES(6,'F',2);
+
+SELECT * FROM employee;
+
+
+--use cross join
+
+SELECT * FROM employee CROSS JOIN department;
+
+--use inner join
+
+SELECT * FROM employee INNER JOIN department ON employee.DeptName = department.DeptID;
+
+--use left join
+
+SELECT * FROM employee LEFT JOIN department ON employee.DeptName = department.DeptID;
+
+--use right join
+
+SELECT * FROM employee RIGHT JOIN department ON employee.DeptName = department.DeptID;
+
+
+--teacher teaching in cse and ECE department
+
+SELECT * FROM employee WHERE DeptName = 1 OR DeptName = 2;
+
+--working in CSE department
+
+SELECT * FROM employee WHERE DeptName = 1;
+
+SELECT employee.EmployeeName , department.DeptName FROM employee Right JOIN department ON employee.DeptName = department.DeptID;

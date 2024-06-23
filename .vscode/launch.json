@@ -3,5 +3,20 @@
     // Hover to view descriptions of existing attributes.
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
-    "configurations": []
+    "configurations": [
+        {
+            "type": "java",
+            "name": "LCA_eff",
+            "request": "launch",
+            "mainClass": "LCA_eff",
+            "projectName": "DSA_From_Basic_8af3a8e2"
+        },
+        {
+            "type": "java",
+            "name": "GFG",
+            "request": "launch",
+            "mainClass": "GFG",
+            "projectName": "DSA_From_Basic_8af3a8e2"
+        }
+    ]
 }

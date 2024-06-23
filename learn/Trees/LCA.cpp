@@ -16,22 +16,42 @@ public:
 };
 
 
+
+//Naive solution //
+
 bool createpath(Node *root , int p1 , vector<Node*> &res){
     if(root == NULL){
         return false;
     }
+    res.push_back(root);
     if(root->data == p1){
-        res.push_back(root);
         return true;
     }
-
     if(createpath(root->left , p1 , res) || createpath(root->right , p1 , res)){
-        res.push_back(root);
         return true;
     }
-
+    res.pop_back();
     return false;
 }
+
+Node* lca (Node *root , int n1 , int n2){
+    vector<Node*> p1 , p2;
+    if(!createpath(root , n1 , p1) || !createpath(root , n2 , p2)){
+        return NULL;
+    }
+
+    for(int i = 0 ; i<p1.size()-1 && i<p2.size()-1 ; i++){
+        if(p1[i+1]->data != p2[i+2]->data){
+            return p1[i];
+        }
+    }
+    return NULL;
+}
+
+
+//Efficient solution
+
+
 
 
 int main(){
@@ -49,13 +69,15 @@ int main(){
     r1->left = l3;
 
 
-    vector<Node*> res;
-    createpath(root , 50 , res);
+    // vector<Node*> res;
+    // createpath(root , 40 , res);
 
-    for(auto i : res){
-        cout<<i->data<<" ";
-    }
+    // for(auto i : res){
+    //     cout<<i->data<<" ";
+    // }
 
+    Node* r = lca(root , 60 , 40);
+    cout<<r->data<<endl;
 
 
     return 0;

@@ -386,3 +386,64 @@ SELECT * FROM employee WHERE DeptName = 1 OR DeptName = 2;
 SELECT * FROM employee WHERE DeptName = 1;
 
 SELECT employee.EmployeeName , department.DeptName FROM employee Right JOIN department ON employee.DeptName = department.DeptID;
+
+
+
+CREATE DATABASE School;
+use School;
+
+DROP TABLE student;
+
+--create a table student with following column name ID int , Name carchar , Section varchar , City varchar , MArks ans Int
+
+CREATE TABLE student(
+    ID INT PRIMARY KEY,
+    Name VARCHAR(50),
+    Section VARCHAR(10),
+    City VARCHAR(50),
+    Marks INT
+);
+
+--insert values in student table with ID 1 , 2 , 3 , 4 , 5 , 6 and Name A , B , C , D , E , F and Section A , B , C , D , A , B and City as Delhi , Noida , Ghaziabad , Faridabad , Meerut , Gurgaon and Marks as 60 , 70 , 80 , 90 , 100 , 95
+
+INSERT INTO student VALUES(1,'A','A','Delhi',83);
+INSERT INTO student VALUES(2,'B','B','Noida',84);
+INSERT INTO student VALUES(3,'C','C','Ghaziabad',85);
+INSERT INTO student VALUES(4,'D','D','Faridabad',86);
+INSERT INTO student VALUES(5,'E','A','Meerut',87);
+INSERT INTO student VALUES(6,'F','B','Gurgaon',89);
+-- add few more
+
+INSERT INTO student VALUES(7,'G','C','Mathura',95);
+INSERT INTO student VALUES(8,'H','D','Agra',96);
+
+
+
+SELECT * FROM student;
+
+
+--average marks of the student who have more than the avergae marks
+
+SELECT AVG(Marks) FROM student WHERE Marks > (SELECT AVG(Marks) FROM student);
+
+--find out the city who has the maximum of the   average marks
+
+SELECT City FROM student WHERE Marks = (SELECT MAX(Marks) FROM student WHERE Marks > (SELECT AVG(Marks) FROM student));         
+
+--using group by
+
+SELECT City
+FROM student
+GROUP BY City
+HAVING AVG(Marks) = (
+    SELECT MAX(avg_marks)
+    FROM (
+        SELECT AVG(Marks) AS avg_marks
+        FROM student
+        GROUP BY City
+    ) AS subquery
+);
+
+
+
+--average marks of the students who obtained from Noida and Meerut

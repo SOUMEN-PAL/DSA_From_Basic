@@ -19,12 +19,13 @@ void seive(int a){
     }
     cout<<endl;
 }
+
 void effsteve(int a){
    vector<bool> vec(a+1,true);
    for(int i=2;i*i<=a;i++){
        if(vec[i]==true){
             
-           for(int j=i*i;j<=a; j=j+i){
+           for(int j=i*i;j<=a/2; j=j+i){
                vec[j]=false;
            }
        }
@@ -36,6 +37,7 @@ void effsteve(int a){
    }
    cout<<endl;
 }
+
 
 void mrstevee(int n){
     vector <bool> v2(n+1,true);

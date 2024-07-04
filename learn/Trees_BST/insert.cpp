@@ -24,23 +24,17 @@ void inorder(Node* root) {
 }
 
 
-bool search(Node * root , int key){
+Node *insertNode(Node *root , int d){
     if(root == NULL){
-        return false;
+        return new Node(d);
     }
-
-    if(root->data == key){
-        return true;
+    else if(root->data < d){
+        root->right = insertNode(root->right , d);
+    } 
+    else if(root->data > d){
+        root->left = insertNode(root->left , d);
     }
-
-
-    if(key > root->data){
-        return search(root->right , key);
-    }
-    else{
-        return search(root->left , key);
-    }
-    return false;
+    return root;
 }
 
 
@@ -65,7 +59,9 @@ int main() {
 
     inorder(root);
     cout<<endl;
-    cout<<search(root , 99)<<endl;
+    root = insertNode(root , 20);
+    inorder(root);
+    cout<<endl;
 
     return 0;
 }

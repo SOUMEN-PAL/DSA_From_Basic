@@ -1,0 +1,105 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Define Tree structure
+class Node {
+public:
+    int data;
+    Node* left;
+    Node* right;
+
+    // Constructor
+    Node(int d) {
+        data = d;
+        left = right = NULL;
+    }
+};
+
+// Inorder traversal
+void inorder(Node* root) {
+    if (root == NULL) return;
+    inorder(root->left);
+    cout << root->data << " ";
+    inorder(root->right);
+}
+
+
+
+//Naive approach using inorder traversal
+void floor(Node *root , int &res , int key){
+    if(root == NULL){
+        return;
+    }
+
+    floor(root->left , res , key);
+    if(root->data<= key){
+        res = root->data;
+    }
+    floor(root->right , res , key);
+}
+
+
+
+//Efficient solution 
+int floor_bst(Node * root , int key){
+    int res = 0;
+    while(root != NULL){
+        if(root->data == key){
+            res = (root->data);
+        }
+        else if(root->data > key){
+            root = root->left;
+        }
+        else{// data <=key
+            res = root->data;
+            root = root->right;
+        }
+    }
+    return res;
+}
+
+int ciel(Node *root , int key){
+    int res = 0;
+    if(root == NULL){
+        return -1;
+    }
+    while(root != NULL){
+        if(root->data == key){
+            return root->data;
+        }
+        else if(root->data < key){
+            root = root->right;
+        }
+        else{
+            res = root->data;
+            root = root->left;
+        }
+    }
+    return res;
+}
+
+
+int main() {
+    // Create a Binary search tree
+    Node* root = new Node(10);
+    Node* l1 = new Node(5);
+    Node* r1 = new Node(15);
+    Node* l2 = new Node(3);
+    Node* r2 = new Node(7);
+    Node* l3 = new Node(12);
+    Node* r3 = new Node(18);
+    Node* l4 = new Node(1);
+
+    root->left = l1;
+    root->right = r1;
+    l1->left = l2;
+    l1->right = r2;
+    r1->left = l3;
+    r1->right = r3;
+    l2->left = l4;
+
+
+    cout<<floor_bst(root , 11);
+
+    return 0;
+}

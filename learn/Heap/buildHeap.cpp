@@ -12,6 +12,12 @@ class minHeap{
             capacity = n;
         }
 
+        minHeap(int Arr[] , int n){
+            arr = Arr;
+            size = n;
+            buildHeap(arr , n);
+        }
+
         //Utility functions
         int left(int i){
             return 2 * i + 1;
@@ -100,25 +106,24 @@ class minHeap{
             cout<<endl;
         }
         
+
+        void buildHeap(int arr[] , int n){
+            for(int i = (n/2) - 1 ; i != 0 ; i--){
+                minHeapify(i);
+            }
+        }
 };
 
 
 int main(){
-    minHeap myHeap(10);
-    for(int i = 0 ; i<6 ; i++){
-        int inpt;
-        cin>>inpt;
-        myHeap.insert(inpt);
-    }
+    int arr[] = {10,34,23,67,12};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    minHeap myHeap(arr , n);
 
     myHeap.print_heap();
-    myHeap.increaseKey(1 , 120);
-    myHeap.print_heap();
-    myHeap.d_lete(1);
+    myHeap.d_lete(2);
     myHeap.print_heap();
 
 
-
-    
     return 0;
 }

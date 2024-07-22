@@ -38,7 +38,7 @@ int max_sum(int arr[] , int n){
 
 
 int main(){
-    int arr[] = {2,3,-8,7,-1,2,3};
+    int arr[] = {-2,1,-3,-5,4,-1,2,1,-4,1};
     int n = sizeof(arr)/sizeof(arr[0]);
     cout<<max_sum(arr , n)<<endl;
     cout<<mSum(arr , n)<<endl;

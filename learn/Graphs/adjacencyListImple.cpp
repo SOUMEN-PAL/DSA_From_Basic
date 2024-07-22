@@ -30,15 +30,7 @@ void addEdge(vector<Node*> &adjList , int v , int u){
     adjList[u] = newNode;
 }
 
-int main(){
-    int v = 4;
-    vector<int> adj[v];
-    addEdge(adj , 0 , 1);
-    addEdge(adj , 0 , 2);
-    addEdge(adj , 1 , 2);
-    addEdge(adj , 1 , 3);
-
-
+void printList(vector<int> adj[] , int v){
     for(int i = 0 ; i < v ; i++){
         cout << i << " -> ";
         for(auto x : adj[i]){
@@ -46,13 +38,9 @@ int main(){
         }
         cout << endl;
     }
+}
 
-    vector<Node*> adjList(v , NULL);
-    addEdge(adjList , 0 , 1);
-    addEdge(adjList , 0 , 2);
-    addEdge(adjList , 1 , 2);
-    addEdge(adjList , 1 , 3);
-
+void printList(vector<Node*> adjList , int v){
     for(int i = 0 ; i < v ; i++){
         cout << i << " -> ";
         Node* temp = adjList[i];
@@ -62,6 +50,28 @@ int main(){
         }
         cout << endl;
     }
+}
+
+int main(){
+    int v = 4;
+    vector<int> adj[v];
+    addEdge(adj , 0 , 1);
+    addEdge(adj , 0 , 2);
+    addEdge(adj , 1 , 2);
+    addEdge(adj , 1 , 3);
+
+    cout<<"Adjacency List Array Representation of Graph"<<endl;
+    printList(adj , v);
+    
+
+    vector<Node*> adjList(v , NULL);
+    addEdge(adjList , 0 , 1);
+    addEdge(adjList , 0 , 2);
+    addEdge(adjList , 1 , 2);
+    addEdge(adjList , 1 , 3);
+
+    cout<<"Adjacency List Linked list Representation of Graph"<<endl;
+    printList(adjList , v);
     
     return 0;
 }

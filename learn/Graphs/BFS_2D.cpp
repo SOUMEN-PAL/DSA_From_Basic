@@ -26,7 +26,7 @@ void BFS(vector<vector<int>> arr , int n , int m , int row , int column){
         cout<<arr[x][y]<<" ";
 
         int rowD[] = {-1 , 0 , 1 , 0};
-        int colD[] = {0 , 1 , -1 , 0};
+        int colD[] = {0 , 1 , 0 , -1};
         //Traversing Direction 
         for(int i = 0 ; i<4 ; i++){
             int adjX = x + rowD[i];

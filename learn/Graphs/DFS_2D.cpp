@@ -8,8 +8,7 @@ bool isValid(int x , int y , int n , int m , vector<vector<bool>> visited){
     return false;
 }
 
-void DFS(vector<vector<int>> &matrix , int n , int m , int si , int sj){
-    vector<vector<bool>> visited(n , vector<bool>(m , false));
+void DFS(vector<vector<int>> &matrix , int n , int m , int si , int sj , vector<vector<bool>> &visited){
     stack<pair<int , int>> s;
     s.push({si , sj});
     visited[si][sj] = true;
@@ -28,6 +27,17 @@ void DFS(vector<vector<int>> &matrix , int n , int m , int si , int sj){
         for(int i = 0 ; i<4 ; i++){
             if(isValid(x+dx[i] , y+dy[i] , n , m , visited)){
                 s.push({x+dx[i] , y+dy[i]});
+            }
+        }
+    }
+}
+
+void DFS(vector<vector<int>> &matrix , int n , int m , int si , int sj){
+    vector<vector<bool>> visited(n , vector<bool>(m , false));
+    for(int i = 0 ; i<n ; i++){
+        for(int j = 0 ; j<m ; j++){
+            if(visited[i][j] == false){
+                DFS(matrix , n , m , i , j , visited);
             }
         }
     }

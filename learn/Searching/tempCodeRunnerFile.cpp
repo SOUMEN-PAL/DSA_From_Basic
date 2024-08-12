@@ -1,22 +1,3 @@
-#include <bits/stdc++.h>
-using namespace std;
-
-
-
-// naive solution //
-float Median_sorted(vector<int> a1 , vector<int> a2){
-    vector<int>res(a1);
-    copy(a2.begin() , a2.end() , back_inserter(res));
-    sort(res.begin() , res.end());
-    int Size = res.size();
-    if(Size%2==0){
-        return float(res[Size/2] + res[( Size/2) - 1])/2;
-    }
-    else{
-        return (float)res[Size/2];
-    }
-}
-
 // Efficient Solution //
 int median_Sorted(vector<int> v1 , vector<int> v2){
     int n1 = v1.size();
@@ -52,14 +33,4 @@ int median_Sorted(vector<int> v1 , vector<int> v2){
         }
     }
     return 0.0;
-}
-
-
-int main(){
-    vector<int> a1 = {10 , 20 , 40 , 50};
-    vector<int> a2 = {2,4,6,8,10};
-    cout<<Median_sorted(a1 , a2)<<endl;
-    cout<<median_Sorted(a1 , a2)<<endl;
-
-    return 0;
 }

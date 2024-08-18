@@ -44,6 +44,29 @@ int countPaths(int V, vector<int> adj[], int source, int destination) {
     return cnt;
 }
 
+
+//Itreative DFS solution
+int count_paths(int v , vector<int> adj[] , int source , int destination){
+    stack<int> st;
+    st.push(source);
+    int cnt = 0;
+
+    while(!st.empty()){
+        int curr = st.top();
+        if(curr == destination){
+            cnt++;
+        }
+        st.pop();
+
+        for(auto neighbour : adj[curr]){
+            st.push(neighbour);
+        }
+    }
+
+    return cnt;
+}
+
+
 int main(){
     int v = 5;
     vector<int> adj[v];

@@ -21,6 +21,7 @@
 
 
 
+
 bool BFS(vector<int> adj[] , int v , vector<bool> &visited , int source){
     queue<pair<int , int>> q;
     q.push({source , -1});
@@ -40,6 +41,22 @@ bool BFS(vector<int> adj[] , int v , vector<bool> &visited , int source){
             else if(u != parent){
                 return true;
             }
+        }
+    }
+    return false;
+}
+
+//DFS approach for the same
+bool DFS(vector<int> adj[] , vector<bool> &visited , int source , int parent){
+    visited[source] = true;
+    for(auto u : adj[source]){
+        if(visited[u] == false){
+            if(DFS(adj , visited , u , source) == true){
+                return true;
+            }
+        }
+        else if(u != parent){
+            return true;
         }
     }
     return false;

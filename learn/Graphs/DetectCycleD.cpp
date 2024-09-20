@@ -54,6 +54,36 @@ bool detectLoop(vector<int> adj[] , int v){
 }
 
 
+bool detectCycle(vector<int> adj[] , int v){
+    vector<int> in(v , 0);
+    for(int i = 0 ; i<v ; i++){
+        for(auto u : adj[i]){
+            in[u]++;
+        }
+    }
+
+    queue<int> q;
+    int count = 0;
+
+    for(int i = 0 ; i<v ; i++){
+        if(in[i] == 0){
+            q.push(i);
+        }
+    }
+
+    while(!q.empty()){
+        int curr = q.front();
+        count++;
+        q.pop();
+        for(auto i : adj[curr]){
+            in[i]--;
+            if(in[i] == 0){
+                q.push(i);
+            }
+        }
+    }
+    return (count != v);
+}
 
 
 
@@ -71,6 +101,7 @@ int main(){
     printList(adj , v);
 
     cout<<detectLoop(adj , v)<<endl;
+    cout<<detectCycle(adj , v)<<endl;
 
     return 0;
 }

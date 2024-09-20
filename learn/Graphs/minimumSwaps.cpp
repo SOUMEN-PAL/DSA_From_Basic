@@ -33,6 +33,5 @@ int main(){
     vector<int> arr = {6 , 4 , 2 , 14 , 8 , 19 , 12 , 16};
     int t = minSwaps(arr);
     cout<<t<<endl;
-    
     return 0;
 }

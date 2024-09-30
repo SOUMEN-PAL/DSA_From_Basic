@@ -74,6 +74,12 @@ int largestAreaInHistogramBetter(int arr[] , int n){
     vector<int> ns = nextsmaller(arr , n);
     vector<int> ps = previousSmaller(arr , n);
 
+
+    for(auto i : ns)
+    {
+        cout<<i<<" ";
+    }
+    cout<<endl;
     int res = 0;
     for(int i = 0 ; i<n ; i++){
         int curr = arr[i];
@@ -110,7 +116,7 @@ int LargestAreaHistogram(int arr[] , int n){
 
 
 int main(){
-    int arr[] = {6,2,5,4,1,5,6};
+    int arr[] = {4,3,1,2};
     int n = sizeof(arr)/sizeof(arr[0]);
     cout<<largestAreaInHistogram(arr , n)<<endl;
     cout<<largestAreaInHistogramBetter(arr , n)<<endl;

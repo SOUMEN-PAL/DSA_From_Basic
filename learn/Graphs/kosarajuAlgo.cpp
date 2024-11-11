@@ -27,14 +27,13 @@ void DFS(vector<int> adj[] , int v , stack<int> &st , vector<bool> &visited){
         }
     }
     st.push(v);
-}
+}  
 
 
 void kosaRaju(vector<int> adj[] , int v , int s){
     vector<bool> visited(v , false);
     stack<int> finishTime;
     DFS(adj , s , finishTime , visited);
-
     //Reverse the graph how?? TransPose??But I have adjacenty list :Solution create a new graph
     vector<int> g2[v];
 

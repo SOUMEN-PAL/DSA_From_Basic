@@ -32,7 +32,7 @@ void dupp(int arr[] , int n){
 int main(){
     
 
-
+	cout<<"hello world"<<endl;
 
     return 0;
 }

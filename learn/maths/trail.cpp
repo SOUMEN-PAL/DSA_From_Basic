@@ -16,11 +16,6 @@ int main(){
     cout<<"Whose factorial trailing zeros you want: ";
     cin>>n;
     cout<<trail(n);
-
-
-
-
-
-    
+    cout<<endl;
     return 0;
 }

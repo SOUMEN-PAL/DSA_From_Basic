@@ -36,7 +36,7 @@ void DFS(vector<int> adj[] , vector<bool> &visited , vector<bool> &ap , vector<i
 
             low[src] = min(low[src] , low[i]);
 
-            //if root node//
+            //if root node//    
             if(parent[src] == -1 && children > 1){
                 ap[src] = true;
             }
@@ -80,12 +80,14 @@ void articulationPoint(vector<int> adj[] , int V){
 
 
 int main(){
-    int v = 4;
+    int v = 6;
     vector<int> adj[v];
     addEdge(adj , 0 , 1);
-    addEdge(adj , 0 , 2);
     addEdge(adj , 1 , 2);
     addEdge(adj , 1 , 3);
+    addEdge(adj , 3 , 4);
+    addEdge(adj , 4 , 5);
+    addEdge(adj , 5 , 1);
 
     cout << "Adjacency List Array Representation of Graph" << endl;
     printList(adj , v);

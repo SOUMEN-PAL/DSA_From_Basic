@@ -5,12 +5,12 @@ bool isValid(int time, int k, vector<int>& arr) {
     int workers = 1; 
     int n = arr.size();
 
-    int lastPosition = arr[0]; 
+    int range = arr[0]; 
 
     for (int i = 1; i < n; i++) {
-        if (arr[i] > lastPosition + 2 * time) {
+        if (arr[i] > range + 2 * time) {
             workers++;
-            lastPosition = arr[i];
+            range = arr[i];
         }
         if (workers > k) return false; 
     }

@@ -1,7 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-
 struct myComp {
     bool operator()(const pair<int, int>& a, const pair<int, int>& b) const {
         // Example comparison: compare based on the first element of the pair
@@ -24,7 +23,7 @@ int main(){
     mp[5] = 10;
 
 
-    priority_queue<pair<int , int> , vector<int> ,  myComp> pq;
+    priority_queue<pair<int , int> , vector<pair<int , int> , myComp>> pq;
     for(auto i : mp){
         pq.push({i.first , i.second});
     }

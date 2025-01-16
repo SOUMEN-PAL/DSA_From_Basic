@@ -23,7 +23,7 @@ int main(){
     mp[5] = 10;
 
 
-    priority_queue<pair<int , int> , vector<pair<int , int> , myComp>> pq;
+    priority_queue<pair<int, int>, vector<pair<int, int>>, myComp> pq;
     for(auto i : mp){
         pq.push({i.first , i.second});
     }

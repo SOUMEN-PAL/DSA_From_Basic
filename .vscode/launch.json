@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "FractionalKnapScak",
+            "request": "launch",
+            "mainClass": "learn.Greedy.FractionalKnapScak",
+            "projectName": "DSA_From_Basic_f2cd8c2e"
+        },
+        {
+            "type": "java",
             "name": "LCA_eff",
             "request": "launch",
             "mainClass": "LCA_eff",

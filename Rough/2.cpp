@@ -2,13 +2,12 @@
 using namespace std;
 
 int main(){
-    int t;
-    cin>>t;
-    while(t--){
-        int n;
-        cin>>n;
-        
-    }
-    cout<<endl;
+    
+
+    char x = 'a';
+    x = x+1;
+    cout<<x<<endl;
+
+
     return 0;
 }

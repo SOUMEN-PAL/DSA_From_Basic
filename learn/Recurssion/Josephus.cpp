@@ -1,13 +1,22 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int jos(int n , int k ){
-    if(n==1){
-        return 0;
+// int jos(int n , int k ){
+//     if(n==1){
+//         return 0;
+//     }
+//     else{
+//         return (jos(n-1 , k)+k)%n;
+//     }
+
+// }
+
+int jos(int n, int k) {
+    int result = 0;
+    for (int i = 1; i <= n; i++) {
+        result = (result + k) % i;
     }
-    else{
-        return (jos(n-1 , k)+k)%n;
-    }
+    return result;
 }
 
 

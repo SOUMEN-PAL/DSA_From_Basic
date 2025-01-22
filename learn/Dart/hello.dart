@@ -7,6 +7,7 @@ void main(){
 
     int? data = null;
 
+    print(data);
 
     print(hello());
 }

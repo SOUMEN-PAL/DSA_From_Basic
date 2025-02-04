@@ -40,8 +40,18 @@ Node* lca (Node *root , int n1 , int n2){
         return NULL;
     }
 
+    // for(auto i : p1){
+    //     cout<<i->data<<" ";
+    // }
+    // cout<<endl;
+
+    // for(auto i : p2){
+    //     cout<<i->data<<" ";
+    // }
+    // cout<<endl;
+
     for(int i = 0 ; i<p1.size()-1 && i<p2.size()-1 ; i++){
-        if(p1[i+1]->data != p2[i+2]->data){
+        if(p1[i+1]->data != p2[i+1]->data){
             return p1[i];
         }
     }

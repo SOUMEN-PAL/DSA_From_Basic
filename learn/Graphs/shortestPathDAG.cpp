@@ -57,21 +57,16 @@ void shortestPath(int source, const vector<vector<pair<int, int>>>& adj, int V) 
 }
 
 int main() {
-    int V = 6;
+    int V = 5;
     vector<vector<pair<int, int>>> adj(V);
 
     // Example graph: (source, destination, weight)
-    adj[0].push_back({1, 5});
-    adj[0].push_back({2, 3});
-    adj[1].push_back({3, 6});
-    adj[1].push_back({2, 2});
-    adj[2].push_back({4, 4});
-    adj[2].push_back({5, 2});
-    adj[2].push_back({3, 7});
-    adj[3].push_back({4, -1});
-    adj[4].push_back({5, -2});
+    adj[0].push_back({1 , 1});
+    adj[2].push_back({0 , 1});
+    adj[2].push_back({3 , 1});
+    adj[2].push_back({4 , 1});
 
-    int source = 1;
+    int source = 2;
     shortestPath(source, adj, V);
 
     return 0;

@@ -16,7 +16,7 @@ public:
 };
 
 
-const int EMPTY = -1;
+const int EMPTY = NULL;
 void slz(Node * root , vector<int> &arr){
     if(root == NULL){
         arr.push_back(EMPTY);
@@ -56,12 +56,12 @@ void preOrder(Node* root){
 
 
 int main(){
-    Node *root = new Node(10);
-    Node *l1 = new Node(20);
-    Node *r1 = new Node(30);
-    Node *l2 = new Node(40);
-    Node *r2 = new Node(50);
-    Node *l3 = new Node(60);
+    Node *root = new Node(1);
+    Node *l1 = new Node(2);
+    Node *r1 = new Node(3);
+    Node *l2 = new Node(4);
+    Node *r2 = new Node(5);
+    Node *l3 = new Node(6);
 
     root->left = l1;
     root->right = r1;

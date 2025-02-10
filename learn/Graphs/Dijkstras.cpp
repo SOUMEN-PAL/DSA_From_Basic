@@ -4,7 +4,7 @@ using namespace std;
 
 void addEdge(vector<vector<int>> arr[] , int v , int u , int wt){
     arr[v].push_back({u , wt});
-    arr[u].push_back({v , wt});
+    // arr[u].push_back({v , wt});
 }
 
 void printList(vector<vector<int>> adj[], int v) {
@@ -62,19 +62,17 @@ void printVector(const vector<pair<int, pair<int, int>>> &vec) {
 
 
 int main(){
-    int v = 4;
+    int v = 3;
     vector<vector<int>> adj[v];
-    addEdge(adj , 0 , 1 , 2);
+    addEdge(adj , 0 , 1 , 6);
     addEdge(adj , 0 , 2 , 2);
-    addEdge(adj , 1 , 2 , 1);
-    addEdge(adj , 1 , 3 , 2);
-    addEdge(adj , 2 , 3 , 3);
+    addEdge(adj , 2 , 1 , 3);
 
     cout << "Adjacency List Array Representation of Graph" << endl;
     printList(adj , v);
     cout<<endl;
 
-    auto shortestGraph = shortestPath(adj , v , 1 , -1);
+    auto shortestGraph = shortestPath(adj , v , 0 , -1);
     printVector(shortestGraph);
 
     return 0;

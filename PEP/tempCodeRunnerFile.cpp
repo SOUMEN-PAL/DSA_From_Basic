@@ -1,1 +1,2 @@
-head
+
+    vector<pair<int, int>> fac;

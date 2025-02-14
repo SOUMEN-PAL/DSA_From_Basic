@@ -2,7 +2,7 @@
 using namespace std;
 typedef long long ll;
 const ll INF = 1LL << 60;
-
+ll mod = 1e9 + 7;
 
 long long numOfWays(int N, int M)
 {

@@ -17,7 +17,7 @@ int partiton(int arr[] , int low, int high)
     return i+1;
 }
 
-int kth_largest(int arr[] , int n , int k){
+int kth_smalest(int arr[] , int n , int k){
     int low = 0 , high = n-1;
     while(low<=high){
         int p = partiton(arr , low , high);
@@ -39,7 +39,7 @@ int main(){
     int arr[] = {10,4,5,8,11,6,26};
     int n = sizeof(arr)/sizeof(arr[0]);
     int k = 5;
-    cout<<kth_largest(arr , n , k)<<endl;
+    cout<<kth_smalest(arr , n , k)<<endl;
     
     return 0;
 }

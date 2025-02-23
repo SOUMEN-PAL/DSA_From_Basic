@@ -20,6 +20,8 @@ int fibo(int n){
 int main(){
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
-    cout<<fibo(5)<<endl;
+    int  n;
+    cin>>n;
+    cout<<fibo(n)<<endl;
     return 0;
 }

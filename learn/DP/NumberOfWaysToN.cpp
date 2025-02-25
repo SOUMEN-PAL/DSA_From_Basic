@@ -38,6 +38,36 @@ int ways_memo(int n , int mN){
 }
 
 
+//Tabulation based code
+//this dp is not that much optimised
+vector<vector<long long>> dp(1e3+1 , vector<long long>(1e3 , 0));
+ll ways_tabu(long long n , long long maxN){
+    
+    
+    for(int j = 0 ; j<n ; j++){
+        dp[0][j] = 1;
+    }
+    
+    for(int i = 1 ; i<=n ; i++){
+        dp[i][0] = 0;
+    }
+    
+    
+    for(int i = 1 ; i<=n ; i++){
+        for(int j = 1 ; j<n ; j++){
+            if(i >= j){
+                dp[i][j] = dp[i-j][j] + dp[i][j-1];
+            }
+            else{
+                dp[i][j] = dp[i][j-1];
+            }
+        }
+    }
+    
+    
+    return dp[n][n-1];
+}
+
 
 int main(){
     ios::sync_with_stdio(false);
@@ -46,7 +76,7 @@ int main(){
     int n;
     cin>>n;
     
-    cout<<ways(n, n-1)<<endl;
+    cout<<ways_tabu(n, n-1)<<endl;
     
     return 0;
 }

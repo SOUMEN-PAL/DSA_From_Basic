@@ -10,6 +10,7 @@ int ways(int n , int maxNum){
         return 1;
     }
     if(n < 0 || maxNum == 0){
+        //forward
         return 0;
     }
     

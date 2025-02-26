@@ -21,7 +21,7 @@ class LRUCache {
 public:
 	unordered_map<int, Node*> map;
 	int capacity, count;
-	Node* head, * tail;
+	Node *head, *tail;
 
 
 	LRUCache(int c) {

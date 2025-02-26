@@ -69,6 +69,18 @@ ll ways_tabu(long long n , long long maxN){
 }
 
 
+int dp_eff(int n , int maxN){
+    vector<int> dp(n+1 , 0);
+    dp[0] = 1;
+    
+    for(int i = 1 ; i<n ; i++){
+        for(int j = i ; j<=n ; j++){
+            dp[j] = dp[j] + dp[j-i];
+        }
+    }
+    return dp[n];
+}
+
 int main(){
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
@@ -76,7 +88,7 @@ int main(){
     int n;
     cin>>n;
     
-    cout<<ways_tabu(n, n-1)<<endl;
+    cout<<dp_eff(n, n-1)<<endl;
     
     return 0;
 }

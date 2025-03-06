@@ -93,31 +93,44 @@ int implicit_memo(const vector<int> &arr, int s, int i) {
   return imp_memo[s][i] = min(take, notTake);
 }
 
-
 int implicit_dp(const vector<int> &arr, int s) {
-    int n = arr.size();
-    vector<vector<int>> dp(s + 1, vector<int>(n + 1, INT_MAX));
+  int n = arr.size();
+  vector<vector<int>> dp(s + 1, vector<int>(n + 1, INT_MAX));
 
-    // Base case: sum 0 can always be formed with 0 elements
-    for (int j = 0; j <= n; j++) {
-        dp[0][j] = 0;
+  // Base case: sum 0 can always be formed with 0 elements
+  for (int j = 0; j <= n; j++) {
+    dp[0][j] = 0;
+  }
+
+  for (int i = 1; i <= s; i++) {
+    for (int j = n - 1; j >= 0; j--) {
+      // Not taking the current element
+      dp[i][j] = dp[i][j + 1];
+
+      // Taking the current element if possible
+      if (i >= arr[j] && dp[i - arr[j]][j] != INT_MAX) {
+        dp[i][j] = min(dp[i][j], dp[i - arr[j]][j] + 1);
+      }
     }
+  }
 
-    for (int i = 1; i <= s; i++) {
-        for (int j = n - 1; j >= 0; j--) {
-            // Not taking the current element
-            dp[i][j] = dp[i][j + 1];
-
-            // Taking the current element if possible
-            if (i >= arr[j] && dp[i - arr[j]][j] != INT_MAX) {
-                dp[i][j] = min(dp[i][j], dp[i - arr[j]][j] + 1);
-            }
-        }
-    }
-
-    return dp[s][0] == INT_MAX ? -1 : dp[s][0];
+  return dp[s][0] == INT_MAX ? -1 : dp[s][0];
 }
 
+int inversed_Dp(vector<int> &arr, int s) {
+  vector<int> dp(s + 1, INT_MAX);
+
+  dp[0] = 0;
+
+  for (auto coin : arr) {
+    for (int i = coin; i <= s; i++) {
+      if (dp[i - coin] != INT_MAX) { // Avoid integer overflow
+        dp[i] = min(dp[i], dp[i - coin] + 1);
+      }
+    }
+  }
+  return dp[s] == INT_MAX ? -1 : dp[s];
+}
 
 int main() {
   ios::sync_with_stdio(false);
@@ -140,9 +153,11 @@ int main() {
   int implicit_ans = implicit_memo(arr, s, 0);
   cout << (implicit_ans == INT_MAX ? -1 : implicit_ans) << endl;
   */
-  
-  int ans = implicit_dp(arr , s);
-  cout<<ans<<endl;
-  
+
+  // int ans = implicit_dp(arr, s);
+  // cout << ans << endl;
+  int value = inversed_Dp(arr, s);
+  cout << value << endl;
+
   return 0;
 }

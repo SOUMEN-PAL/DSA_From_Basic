@@ -16,8 +16,7 @@ int lcs(string s, string ss, int n, int m) {
 }
 
 vector<vector<int>> memo;
-int lcs_memo(const string &s, const string &ss, int n,
-             int m) { // Pass strings by reference
+int lcs_memo(const string &s, const string &ss, int n, int m) { // Pass strings by reference
   if (n == 0 || m == 0) {
     return 0;
   }

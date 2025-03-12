@@ -117,6 +117,7 @@ int implicit_dp(const vector<int> &arr, int s) {
   return dp[s][0] == INT_MAX ? -1 : dp[s][0];
 }
 
+//__________________ Good solution__________________/
 int inversed_Dp(vector<int> &arr, int s) {
   vector<int> dp(s + 1, INT_MAX);
 

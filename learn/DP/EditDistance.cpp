@@ -89,6 +89,35 @@ int dp_solution(string s1 , string s2){
     return dp[n][m];
 }
 
+//dp solution optimised space//
+class Solution {
+public:
+    int minDistance(string s1, string s2) {
+        int n = s1.size(), m = s2.size();
+        vector<vector<int>> dp(2, vector<int>(m + 1));
+
+        // Base case for an empty s1
+        for (int j = 0; j <= m; j++) {
+            dp[0][j] = j;
+        }
+        
+        for (int i = 1; i <= n; i++) {
+            int curr = i & 1;       // current row index: 0 or 1
+            int prev = 1 - curr;      // previous row index
+            dp[curr][0] = i;          // base case for column 0
+            
+            for (int j = 1; j <= m; j++) {
+                if (s1[i - 1] == s2[j - 1])
+                    dp[curr][j] = dp[prev][j - 1];
+                else
+                    dp[curr][j] = 1 + min({dp[prev][j - 1], dp[prev][j], dp[curr][j - 1]});
+            }
+        }
+        return dp[n & 1][m];
+    }
+};
+
+
 
 int main(){
     ios::sync_with_stdio(false);

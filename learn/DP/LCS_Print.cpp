@@ -26,11 +26,14 @@ void helper(string s, string ss) {
   while (i > 0 && j > 0) {
     if (s[i - 1] == ss[j - 1]) {
       res = s[i - 1] + res; // Add character at the beginning
+      // cout<<s[i-1];
       i--;
       j--;
     } else if (dp[i - 1][j] > dp[i][j - 1]) {
+        // cout<<s[i-1];
       i--;
     } else {
+        // cout<<s[j-1];
       j--;
     }
   }
@@ -42,8 +45,8 @@ int main() {
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
 
-  string s = "ABCDGH";
-  string ss = "AEDFHR";
+  string s = "abac";
+  string ss = "ab";
 
   helper(s, ss);
 

@@ -34,8 +34,35 @@ repeating element, and thus the given Output.
 
 Your Task:
 Complete findRepeating function and return pair of element which is repeated and the number of times it is repeated. The printing is done by the driver code.*/
-
-#include<bits/stdc++.h>
+#include <algorithm>
+#include <array>
+#include <bitset>
+#include <cassert>
+#include <cctype>
+#include <chrono>
+#include <climits>
+#include <cmath>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
+#include <deque>
+#include <functional>
+#include <iomanip>
+#include <iostream>
+#include <limits>
+#include <list>
+#include <map>
+#include <numeric>
+#include <queue>
+#include <set>
+#include <sstream>
+#include <stack>
+#include <string>
+#include <tuple>
+#include <unordered_map>
+#include <unordered_set>
+#include <utility>
+#include <vector>
 using namespace std;
 
 pair<long, long> findRepeating(int *arr , int n){

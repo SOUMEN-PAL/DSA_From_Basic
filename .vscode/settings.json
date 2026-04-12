@@ -92,5 +92,9 @@
         "stop_token": "cpp",
         "variant": "cpp",
         "stack": "cpp"
+    },
+    "code-runner.runInTerminal": true,
+    "code-runner.executorMap": {
+        "cpp": "cd \"$dir\" && /opt/homebrew/bin/g++-15 -std=c++17 \"$fileName\" -o \"$fileNameWithoutExt\" && \"$dir/$fileNameWithoutExt\""
     }
 }

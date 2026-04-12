@@ -1,17 +1,18 @@
 {
     "configurations": [
         {
-            "name": "Linux",
+            "name": "macOS",
             "includePath": [
                 "${workspaceFolder}/**",
-                "/usr/include",
-                "/usr/local/include"
+                "/opt/homebrew/include",
+                "/usr/local/include",
+                "/usr/include"
             ],
             "defines": [],
-            "compilerPath": "/usr/bin/gcc",
+            "compilerPath": "/opt/homebrew/bin/g++-15",
             "cStandard": "c11",
             "cppStandard": "c++17",
-            "intelliSenseMode": "linux-gcc-x64"
+            "intelliSenseMode": "macos-clang-arm64"
         }
     ],
     "version": 4

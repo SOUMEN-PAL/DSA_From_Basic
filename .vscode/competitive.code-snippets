@@ -1,0 +1,125 @@
+{
+  "startCpp": {
+    "scope": "cpp",
+    "prefix": "scpp",
+    "body": [
+      "#include <bits/stdc++.h>",
+      "using namespace std;",
+      "",
+      "using ll = long long;",
+      "",
+      "int main() {",
+      "    ios::sync_with_stdio(false);",
+      "    cin.tie(nullptr);",
+      "",
+      "    $0",
+      "    return 0;",
+      "}"
+    ],
+    "description": "Starter C++ template with ll alias and fast I/O"
+  },
+  "Codeforces Template": {
+    "scope": "cpp",
+    "prefix": "cf",
+    "body": [
+      "#include <bits/stdc++.h>",
+      "using namespace std;",
+      "",
+      "#define ll long long",
+      "#define all(x) (x).begin(), (x).end()",
+      "#define rall(x) (x).rbegin(), (x).rend()",
+      "",
+      "void solve() {",
+      "    $0",
+      "}",
+      "",
+      "int main() {",
+      "    ios::sync_with_stdio(false);",
+      "    cin.tie(nullptr);",
+      "",
+      "    int t = 1;",
+      "    cin >> t;",
+      "    while (t--) solve();",
+      "    return 0;",
+      "}"
+    ],
+    "description": "Codeforces multi-test C++ template"
+  },
+  "Single Test Template": {
+    "scope": "cpp",
+    "prefix": "cfs",
+    "body": [
+      "#include <bits/stdc++.h>",
+      "using namespace std;",
+      "",
+      "int main() {",
+      "    ios::sync_with_stdio(false);",
+      "    cin.tie(nullptr);",
+      "",
+      "    $0",
+      "    return 0;",
+      "}"
+    ],
+    "description": "Single test case C++ template"
+  },
+  "Fast IO": {
+    "scope": "cpp",
+    "prefix": "fio",
+    "body": [
+      "ios::sync_with_stdio(false);",
+      "cin.tie(nullptr);"
+    ],
+    "description": "Fast I/O setup"
+  },
+  "Read Vector": {
+    "scope": "cpp",
+    "prefix": "rv",
+    "body": [
+      "int n;",
+      "cin >> n;",
+      "vector<int> a(n);",
+      "for (int i = 0; i < n; i++) cin >> a[i];"
+    ],
+    "description": "Read vector<int>"
+  },
+  "For Loop": {
+    "scope": "cpp",
+    "prefix": "fori",
+    "body": [
+      "for (int i = 0; i < ${1:n}; i++) {",
+      "    $0",
+      "}"
+    ],
+    "description": "0 to n-1 loop"
+  },
+  "Yes No": {
+    "scope": "cpp",
+    "prefix": "yn",
+    "body": [
+      "cout << (${1:cond} ? \"YES\" : \"NO\") << '\\n';"
+    ],
+    "description": "Print YES/NO"
+  },
+  "Print Vector": {
+    "scope": "cpp",
+    "prefix": "pv",
+    "body": [
+      "for (int i = 0; i < (int)${1:v}.size(); i++) {",
+      "    cout << ${1:v}[i] << (i + 1 == (int)${1:v}.size() ? '\\n' : ' ');",
+      "}"
+    ],
+    "description": "Print vector with spaces"
+  },
+  "Debug Macro": {
+    "scope": "cpp",
+    "prefix": "dbg",
+    "body": [
+      "#ifndef ONLINE_JUDGE",
+      "#define debug(x) cerr << #x << \" = \" << (x) << '\\n'",
+      "#else",
+      "#define debug(x)",
+      "#endif"
+    ],
+    "description": "Debug macro enabled only locally"
+  }
+}
